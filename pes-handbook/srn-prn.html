@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter VII: SRN &amp; PRN Decoded | PES University Handbook</title>
+  <meta name="description" content="An interactive decoder guide for Student Registration Numbers (SRN) and Permanent Registration Numbers (PRN).">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Pixel Cloud Transition Overlay -->
+  <div class="pixel-cloud-overlay active" id="pixelCloudOverlay">
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z" />
+    </svg>
+  </div>
+
+  <!-- Page Loader Shutter -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <svg class="loader-emblem" viewBox="0 0 100 100">
+        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Floating Nav Capsule -->
+  <nav class="floating-nav">
+    <div class="nav-brand">
+      <a href="index.html">PES<span>.</span></a>
+    </div>
+    <div class="breadcrumbs">
+      <a href="index.html">Handbook</a>
+      <span class="separator">/</span>
+      <span class="current">Chapter VII: SRN &amp; PRN</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-search" id="searchBtn" aria-label="Open search modal">
+        Search <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search parameters..." autocomplete="off">
+        <button class="btn-close-search" id="closeSearch" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Chapter Header -->
+  <header class="chapter-header container">
+    <span class="chapter-header-num">Chapter VII</span>
+    <h1 class="chapter-header-title">SRN &amp; PRN Decoded</h1>
+    <p class="chapter-header-quote">"Numeric identifiers serving as the structural anchor of your academic record."</p>
+    <div class="chapter-header-banner-container">
+      <div class="chapter-header-showcase">
+        <div class="visual-block-decor"></div>
+        <span class="showcase-label">REGISTRATION DATABASE</span>
+        <div class="showcase-title">PRN ANALYSIS • SRN BREAKDOWN</div>
+      </div>
+    </div>
+    <div class="ornamental-divider">
+      <div class="divider-pixel"></div>
+      <div class="divider-center-pixel"></div>
+      <div class="divider-pixel"></div>
+    </div>
+  </header>
+
+  <!-- Content Block: Decoder Blocks Grid -->
+  <main class="container">
+    
+    <div class="decoders-grid">
+      
+      <!-- PRN Decoder Box -->
+      <section class="decoder-card pixel-card">
+        <div id="prnDecoderBox">
+          <h2 class="decoder-card-title">Permanent Registration Number</h2>
+          <p class="decoder-subtitle">PRN Anatomy (Click segments to decode)</p>
+          
+          <div class="code-decoder-box">
+            <span class="code-chunk active" data-target="prn-inst">PES</span>
+            <span class="code-chunk" data-target="prn-year">1</span>
+            <span class="code-chunk" data-target="prn-camp">2026</span>
+            <span class="code-chunk" data-target="prn-num">00124</span>
+          </div>
+
+          <div class="decoder-explanations">
+            <!-- Inst Explanation -->
+            <div class="explanation-block active" id="prn-inst">
+              <h4>Institution Code</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lacus id ex egestas scelerisque eget eget dui. Vestibulum molestie tortor et nunc porttitor.</p>
+            </div>
+            <!-- Year Explanation -->
+            <div class="explanation-block" id="prn-year">
+              <h4>Academic Track Code</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Morbi tincidunt eleifend neque, ac mollis est consequat a. In a scelerisque dui. Cras tempor eros dolor, a accumsan lectus finibus ac.</p>
+            </div>
+            <!-- Campus Explanation -->
+            <div class="explanation-block" id="prn-camp">
+              <h4>Admission Year Registry</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Sed nec sodales nisl. In eleifend scelerisque interdum. In in tempor ligula, ac semper erat. Integer luctus dolor dolor, sed lobortis.</p>
+            </div>
+            <!-- Num Explanation -->
+            <div class="explanation-block" id="prn-num">
+              <h4>Unique Serial Sequence</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Vivamus rhoncus mi a justo posuere tincidunt. Proin eleifend tortor ipsum, vitae porta mi lacinia non. Aliquam efficitur ex et massa.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SRN Decoder Box -->
+      <section class="decoder-card pixel-card">
+        <div id="srnDecoderBox">
+          <h2 class="decoder-card-title">Student Registration Number</h2>
+          <p class="decoder-subtitle">SRN Anatomy (Click segments to decode)</p>
+          
+          <div class="code-decoder-box">
+            <span class="code-chunk active" data-target="srn-uni">PES</span>
+            <span class="code-chunk" data-target="srn-camp">RR</span>
+            <span class="code-chunk" data-target="srn-year">26</span>
+            <span class="code-chunk" data-target="srn-dept">CS</span>
+            <span class="code-chunk" data-target="srn-num">999</span>
+          </div>
+
+          <div class="decoder-explanations">
+            <!-- Uni Explanation -->
+            <div class="explanation-block active" id="srn-uni">
+              <h4>University Identifier</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Curabitur quis lorem a lacus gravida scelerisque. Curabitur vitae felis vitae lorem mattis scelerisque sit amet ac lectus.</p>
+            </div>
+            <!-- Camp Explanation -->
+            <div class="explanation-block" id="srn-camp">
+              <h4>Campus Division Code</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Praesent dignissim purus at metus congue hendrerit. Phasellus aliquet sem massa, quis tristique leo facilisis in. Suspendisse.</p>
+            </div>
+            <!-- Year Explanation -->
+            <div class="explanation-block" id="srn-year">
+              <h4>Year of Enrolment</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Fusce id arcu ac tortor tincidunt laoreet. Sed vitae ex id risus molestie volutpat. Aliquam pulvinar egestas mi convallis.</p>
+            </div>
+            <!-- Dept Explanation -->
+            <div class="explanation-block" id="srn-dept">
+              <h4>Academic Program Branch</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Duis interdum, leo eget sollicitudin ultrices, arcu ligula tincidunt nulla, rhoncus condimentum ante metus quis est. Sed eget.</p>
+            </div>
+            <!-- Num Explanation -->
+            <div class="explanation-block" id="srn-num">
+              <h4>Roll Index Sequence</h4>
+              <p style="font-size:0.9rem; margin-top:0.4rem;">Calculus &amp; linear series identifier. Phasellus finibus lacus vel nunc porta tincidunt. Nullam pulvinar congue hendrerit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Chapter Navigation Footer -->
+  <footer class="chapter-navigation-footer">
+    <div class="container footer-nav-inner">
+      <a href="assignments.html" class="nav-footer-btn prev-btn">
+        <span class="nav-footer-label">Previous Chapter</span>
+        <span class="nav-footer-title">Chapter VI: Assignments &amp; Labs</span>
+      </a>
+      <div class="nav-footer-center">
+        <a href="index.html" class="nav-footer-center-btn" aria-label="Back to Handbook Index">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+      </div>
+      <a href="credits-gpa.html" class="nav-footer-btn next-btn">
+        <span class="nav-footer-label">Next Chapter</span>
+        <span class="nav-footer-title">Chapter VIII: Credits &amp; GPA</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Base Footer -->
+  <footer class="base-footer">
+    <div class="container">
+      <p>© 2026 PES University. Reimagined with modern pixel aesthetics.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WPM Speed Gauge -->
+  <div class="reading-speed-blob">
+    <svg class="speed-pixel-icon" viewBox="0 0 24 24">
+      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z" />
+    </svg>
+    <div class="speed-metrics">
+      <span class="speed-label">READ SPEED</span>
+      <span class="speed-value" id="wpmValue">--- WPM</span>
+      <span class="speed-pace" id="paceValue">COMPLETED: 0%</span>
+    </div>
+    <div class="speed-progress-bar" id="wpmProgressBar"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter VIII: Credits &amp; GPA | PES University Handbook</title>
+  <meta name="description" content="An interactive grade point average (GPA) calculator and academic credit regulations handbook page.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Pixel Cloud Transition Overlay -->
+  <div class="pixel-cloud-overlay active" id="pixelCloudOverlay">
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z" />
+    </svg>
+  </div>
+
+  <!-- Page Loader Shutter -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <svg class="loader-emblem" viewBox="0 0 100 100">
+        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Floating Nav Capsule -->
+  <nav class="floating-nav">
+    <div class="nav-brand">
+      <a href="index.html">PES<span>.</span></a>
+    </div>
+    <div class="breadcrumbs">
+      <a href="index.html">Handbook</a>
+      <span class="separator">/</span>
+      <span class="current">Chapter VIII: Credits &amp; GPA</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-search" id="searchBtn" aria-label="Open search modal">
+        Search <kbd>⌘K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search parameters..." autocomplete="off">
+        <button class="btn-close-search" id="closeSearch" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Chapter Header -->
+  <header class="chapter-header container">
+    <span class="chapter-header-num">Chapter VIII</span>
+    <h1 class="chapter-header-title">Credits &amp; GPA</h1>
+    <p class="chapter-header-quote">"Academic progress is measured in credit weights, structured assessments, and index calculations."</p>
+    <div class="chapter-header-banner-container">
+      <div class="chapter-header-showcase">
+        <div class="visual-block-decor"></div>
+        <span class="showcase-label">ALGORITHMIC ENGINES</span>
+        <div class="showcase-title">SGPA CALCULATOR • CREDIT SYSTEM REGULATIONS</div>
+      </div>
+    </div>
+    <div class="ornamental-divider">
+      <div class="divider-pixel"></div>
+      <div class="divider-center-pixel"></div>
+      <div class="divider-pixel"></div>
+    </div>
+  </header>
+
+  <!-- Content Block -->
+  <main class="container">
+    
+    <!-- Credits Info & Formula -->
+    <div class="credits-intro">
+      <section>
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">The Credit Structure</h2>
+        <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id ex sed nisl placerat pretium. Vestibulum convallis arcu id nunc rhoncus rhoncus. Nullam hendrerit porta erat. Praesent finibus ex dolor, in tincidunt sapien varius ac. Aliquam a eros lorem. Pellentesque at egestas sapien.</p>
+        <p style="margin-top: 1rem;">Graduation requisites require a cumulative total credit threshold. Failed modules receive 0 grade points, demanding either makeup exams or complete course repeats depending on cycle rules.</p>
+      </section>
+
+      <!-- Formula Block -->
+      <aside class="gpa-formula-box pixel-card">
+        <h3 class="formula-title">GPA Index Equation</h3>
+        <div class="formula-display">
+          \[SGPA = \frac{\sum (C_i \times G_i)}{\sum C_i}\]
+        </div>
+        <p class="formula-display-sub">Where \(C_i\) represents course credits and \(G_i\) is the grade point obtained.</p>
+      </aside>
+    </div>
+
+    <!-- Letter Grades Table -->
+    <section class="table-panel pixel-card">
+      <div class="panel-header">
+        <h2 class="table-title">Letter Grade Distribution</h2>
+      </div>
+      <div class="responsive-table-wrapper">
+        <table class="lux-table" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Marks Range (%)</th>
+              <th style="text-align:left;">Letter Grade</th>
+              <th style="text-align:left;">Grade Value</th>
+              <th style="text-align:left;">Academic Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>90 – 100</td>
+              <td>S</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">10.0</td>
+              <td>Outstanding</td>
+            </tr>
+            <tr>
+              <td>80 – 89</td>
+              <td>A</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">9.0</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>70 – 79</td>
+              <td>B</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">8.0</td>
+              <td>Very Good</td>
+            </tr>
+            <tr>
+              <td>60 – 69</td>
+              <td>C</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">7.0</td>
+              <td>Good</td>
+            </tr>
+            <tr>
+              <td>50 – 59</td>
+              <td>D</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">6.0</td>
+              <td>Above Average</td>
+            </tr>
+            <tr>
+              <td>40 – 49</td>
+              <td>E</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">5.0</td>
+              <td>Average / Pass</td>
+            </tr>
+            <tr>
+              <td>&lt; 40</td>
+              <td>F</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">0.0</td>
+              <td>Fail / Repeat Required</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Interactive GPA Estimator Box -->
+    <section class="gpa-calculator-box pixel-card">
+      <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Interactive GPA Estimator</h2>
+      
+      <div class="calc-grid">
+        <form id="gpaForm" class="calc-rows" onsubmit="return false;">
+          
+          <!-- Subject 1 Row -->
+          <div class="calc-row">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course I (Math)</span>
+            <input type="number" class="calc-input" placeholder="Credits" value="4" min="1" max="5" aria-label="Course 1 Credits">
+            
+            <!-- Cool Custom Select UI -->
+            <div class="custom-select-container">
+              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">B Grade (8)</div>
+              <div class="custom-select-options" role="listbox">
+                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
+                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
+                <div class="custom-option selected" role="option" data-value="B">B Grade (8)</div>
+                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
+                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
+                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
+                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
+              </div>
+              <select style="display:none;" aria-label="Hidden Course 1 Grade">
+                <option value="S">S</option><option value="A">A</option><option value="B" selected>B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Subject 2 Row -->
+          <div class="calc-row">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course II (Physics/Chem)</span>
+            <input type="number" class="calc-input" placeholder="Credits" value="4" min="1" max="5" aria-label="Course 2 Credits">
+            
+            <!-- Cool Custom Select UI -->
+            <div class="custom-select-container">
+              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">A Grade (9)</div>
+              <div class="custom-select-options" role="listbox">
+                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
+                <div class="custom-option selected" role="option" data-value="A">A Grade (9)</div>
+                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
+                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
+                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
+                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
+                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
+              </div>
+              <select style="display:none;" aria-label="Hidden Course 2 Grade">
+                <option value="S">S</option><option value="A" selected>A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Subject 3 Row -->
+          <div class="calc-row">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course III (Basic Eng.)</span>
+            <input type="number" class="calc-input" placeholder="Credits" value="3" min="1" max="5" aria-label="Course 3 Credits">
+            
+            <!-- Cool Custom Select UI -->
+            <div class="custom-select-container">
+              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">S Grade (10)</div>
+              <div class="custom-select-options" role="listbox">
+                <div class="custom-option selected" role="option" data-value="S">S Grade (10)</div>
+                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
+                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
+                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
+                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
+                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
+                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
+              </div>
+              <select style="display:none;" aria-label="Hidden Course 3 Grade">
+                <option value="S" selected>S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Subject 4 Row -->
+          <div class="calc-row">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course IV (Elective)</span>
+            <input type="number" class="calc-input" placeholder="Credits" value="3" min="1" max="5" aria-label="Course 4 Credits">
+            
+            <!-- Cool Custom Select UI -->
+            <div class="custom-select-container">
+              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">C Grade (7)</div>
+              <div class="custom-select-options" role="listbox">
+                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
+                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
+                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
+                <div class="custom-option selected" role="option" data-value="C">C Grade (7)</div>
+                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
+                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
+                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
+              </div>
+              <select style="display:none;" aria-label="Hidden Course 4 Grade">
+                <option value="S">S</option><option value="A">A</option><option value="B">B</option><option value="C" selected>C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Subject 5 Row -->
+          <div class="calc-row">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course V (Lab)</span>
+            <input type="number" class="calc-input" placeholder="Credits" value="2" min="1" max="5" aria-label="Course 5 Credits">
+            
+            <!-- Cool Custom Select UI -->
+            <div class="custom-select-container">
+              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">S Grade (10)</div>
+              <div class="custom-select-options" role="listbox">
+                <div class="custom-option selected" role="option" data-value="S">S Grade (10)</div>
+                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
+                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
+                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
+                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
+                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
+                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
+              </div>
+              <select style="display:none;" aria-label="Hidden Course 5 Grade">
+                <option value="S" selected>S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
+              </select>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- Result -->
+        <div class="calc-result-panel">
+          <span style="font-family: var(--font-pixel); font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); letter-spacing: 0.05em; text-transform: uppercase;">Estimated SGPA</span>
+          <div class="gpa-score-display" id="gpaOutput">8.88</div>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Real-time projection based on credit weights.</p>
+        </div>
+      </div>
+      
+    </section>
+
+  </main>
+
+  <!-- Chapter Navigation Footer -->
+  <footer class="chapter-navigation-footer">
+    <div class="container footer-nav-inner">
+      <a href="srn-prn.html" class="nav-footer-btn prev-btn">
+        <span class="nav-footer-label">Previous Chapter</span>
+        <span class="nav-footer-title">Chapter VII: SRN &amp; PRN Decoded</span>
+      </a>
+      <div class="nav-footer-center">
+        <a href="index.html" class="nav-footer-center-btn" aria-label="Back to Handbook Index">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+      </div>
+      <a href="bootstrap.html" class="nav-footer-btn next-btn">
+        <span class="nav-footer-label">Next Chapter</span>
+        <span class="nav-footer-title">Chapter IX: Bootstrap Induction</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Base Footer -->
+  <footer class="base-footer">
+    <div class="container">
+      <p>© 2026 PES University. Reimagined with modern pixel aesthetics.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WPM Speed Gauge -->
+  <div class="reading-speed-blob">
+    <svg class="speed-pixel-icon" viewBox="0 0 24 24">
+      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z" />
+    </svg>
+    <div class="speed-metrics">
+      <span class="speed-label">READ SPEED</span>
+      <span class="speed-value" id="wpmValue">--- WPM</span>
+      <span class="speed-pace" id="paceValue">COMPLETED: 0%</span>
+    </div>
+    <div class="speed-progress-bar" id="wpmProgressBar"></div>
+  </div>
+
+  <!-- Render LaTeX equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
