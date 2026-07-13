@@ -12,13 +12,13 @@
   <!-- Fullscreen Pixel Cloud Transition Overlay -->
   <div class="pixel-cloud-overlay active" id="pixelCloudOverlay">
     <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
-      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z" />
+      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z"></path>
     </svg>
     <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
-      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z" />
+      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z"></path>
     </svg>
     <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
-      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z" />
+      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z"></path>
     </svg>
   </div>
 
@@ -26,7 +26,7 @@
   <div class="page-loader" id="pageLoader">
     <div class="loader-content">
       <svg class="loader-emblem" viewBox="0 0 100 100">
-        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" />
+        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35"></polygon>
       </svg>
     </div>
   </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="nav-actions">
       <button class="btn-search" id="searchBtn" aria-label="Open search modal">
-        Search <kbd>⌘K</kbd>
+        Search <kbd>Ctrl+K</kbd>
       </button>
     </div>
   </nav>
@@ -63,7 +63,7 @@
   <header class="chapter-header container">
     <span class="chapter-header-num">Chapter VII</span>
     <h1 class="chapter-header-title">SRN &amp; PRN Decoded</h1>
-    <p class="chapter-header-quote">"Numeric identifiers serving as the structural anchor of your academic record."</p>
+    <h6 class="chapter-header-quote">"Numeric identifiers serving as the structural anchor of your academic record."</h6>
     <div class="chapter-header-banner-container">
       <div class="chapter-header-showcase">
         <div class="visual-block-decor"></div>
@@ -81,90 +81,126 @@
   <!-- Content Block: Decoder Blocks Grid -->
   <main class="container">
     
+    <div class="welcome-intro-block" style="margin-bottom: 3.5rem;">
+      <p class="drop-cap">Every student admitted to PES University is assigned two unique identification numbers - the PRN (Personal Registration Number) and the SRN (Student Registration Number). While both are important, you'll find yourself using your SRN much more frequently during your time at PESU.</p>
+    </div>
+
     <div class="decoders-grid">
       
       <!-- PRN Decoder Box -->
-      <section class="decoder-card pixel-card">
-        <div id="prnDecoderBox">
-          <h2 class="decoder-card-title">Permanent Registration Number</h2>
-          <p class="decoder-subtitle">PRN Anatomy (Click segments to decode)</p>
-          
-          <div class="code-decoder-box">
-            <span class="code-chunk active" data-target="prn-inst">PES</span>
-            <span class="code-chunk" data-target="prn-year">1</span>
-            <span class="code-chunk" data-target="prn-camp">2026</span>
-            <span class="code-chunk" data-target="prn-num">00124</span>
-          </div>
+      <section class="decoder-card pixel-card" id="prnDecoderBox">
+        <h2 class="decoder-card-title">Permanent Registration (PRN)</h2>
+        <p class="decoder-subtitle">PRN Anatomy (Click segments to decode)</p>
+        
+        <div class="code-decoder-box">
+          <span class="code-chunk active" data-target="prn-prefix">PES</span>
+          <span class="code-chunk" data-target="prn-camp">1</span>
+          <span class="code-chunk" data-target="prn-year">2026</span>
+          <span class="code-chunk" data-target="prn-num">001234</span>
+        </div>
 
-          <div class="decoder-explanations">
-            <!-- Inst Explanation -->
-            <div class="explanation-block active" id="prn-inst">
-              <h4>Institution Code</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac lacus id ex egestas scelerisque eget eget dui. Vestibulum molestie tortor et nunc porttitor.</p>
-            </div>
-            <!-- Year Explanation -->
-            <div class="explanation-block" id="prn-year">
-              <h4>Academic Track Code</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Morbi tincidunt eleifend neque, ac mollis est consequat a. In a scelerisque dui. Cras tempor eros dolor, a accumsan lectus finibus ac.</p>
-            </div>
-            <!-- Campus Explanation -->
-            <div class="explanation-block" id="prn-camp">
-              <h4>Admission Year Registry</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Sed nec sodales nisl. In eleifend scelerisque interdum. In in tempor ligula, ac semper erat. Integer luctus dolor dolor, sed lobortis.</p>
-            </div>
-            <!-- Num Explanation -->
-            <div class="explanation-block" id="prn-num">
-              <h4>Unique Serial Sequence</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Vivamus rhoncus mi a justo posuere tincidunt. Proin eleifend tortor ipsum, vitae porta mi lacinia non. Aliquam efficitur ex et massa.</p>
-            </div>
+        <div class="decoder-explanations">
+          <!-- Prefix Explanation -->
+          <div class="explanation-block active" id="prn-prefix">
+            <h4>University Prefix</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">The PRN is assigned at the time of admission and serves as your initial identification number until your SRN is generated. It always begins with the official institutional prefix "PES".</p>
+          </div>
+          <br>
+          <!-- Campus Explanation -->
+          <div class="explanation-block" id="prn-camp">
+            <h4>Campus Division Code</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">
+              Represents the campus of admission:<br>
+              <strong>1</strong> = Ring Road (RR) Campus<br>
+              <strong>2</strong> = Electronic City (EC) Campus
+            </p>
+          </div>
+          <br>
+          <!-- Year Explanation -->
+          <div class="explanation-block" id="prn-year">
+            <h4>Admission Year Registry</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">The full 4-digit calendar year during which your admission was officially processed by the administration (e.g. 2026).</p>
+          </div>
+          <br>
+          <!-- Num Explanation -->
+          <div class="explanation-block" id="prn-num">
+            <h4>Unique Serial Sequence</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">A unique 5 or 6 digit sequential roll code assigned systematically to catalog your records in the administrative database.</p>
           </div>
         </div>
       </section>
 
       <!-- SRN Decoder Box -->
-      <section class="decoder-card pixel-card">
-        <div id="srnDecoderBox">
-          <h2 class="decoder-card-title">Student Registration Number</h2>
-          <p class="decoder-subtitle">SRN Anatomy (Click segments to decode)</p>
-          
-          <div class="code-decoder-box">
-            <span class="code-chunk active" data-target="srn-uni">PES</span>
-            <span class="code-chunk" data-target="srn-camp">RR</span>
-            <span class="code-chunk" data-target="srn-year">26</span>
-            <span class="code-chunk" data-target="srn-dept">CS</span>
-            <span class="code-chunk" data-target="srn-num">999</span>
-          </div>
+      <section class="decoder-card pixel-card" id="srnDecoderBox">
+        <h2 class="decoder-card-title">Student Registration (SRN)</h2>
+        <p class="decoder-subtitle">SRN Anatomy (Click segments to decode)</p>
+        
+        <div class="code-decoder-box">
+          <span class="code-chunk active" data-target="srn-prefix">PES</span>
+          <span class="code-chunk" data-target="srn-camp">1</span>
+          <span class="code-chunk" data-target="srn-level">UG</span>
+          <span class="code-chunk" data-target="srn-year">26</span>
+          <span class="code-chunk" data-target="srn-dept">CS</span>
+          <span class="code-chunk" data-target="srn-num">999</span>
+        </div>
 
-          <div class="decoder-explanations">
-            <!-- Uni Explanation -->
-            <div class="explanation-block active" id="srn-uni">
-              <h4>University Identifier</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Curabitur quis lorem a lacus gravida scelerisque. Curabitur vitae felis vitae lorem mattis scelerisque sit amet ac lectus.</p>
-            </div>
-            <!-- Camp Explanation -->
-            <div class="explanation-block" id="srn-camp">
-              <h4>Campus Division Code</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Praesent dignissim purus at metus congue hendrerit. Phasellus aliquet sem massa, quis tristique leo facilisis in. Suspendisse.</p>
-            </div>
-            <!-- Year Explanation -->
-            <div class="explanation-block" id="srn-year">
-              <h4>Year of Enrolment</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Fusce id arcu ac tortor tincidunt laoreet. Sed vitae ex id risus molestie volutpat. Aliquam pulvinar egestas mi convallis.</p>
-            </div>
-            <!-- Dept Explanation -->
-            <div class="explanation-block" id="srn-dept">
-              <h4>Academic Program Branch</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Duis interdum, leo eget sollicitudin ultrices, arcu ligula tincidunt nulla, rhoncus condimentum ante metus quis est. Sed eget.</p>
-            </div>
-            <!-- Num Explanation -->
-            <div class="explanation-block" id="srn-num">
-              <h4>Roll Index Sequence</h4>
-              <p style="font-size:0.9rem; margin-top:0.4rem;">Calculus &amp; linear series identifier. Phasellus finibus lacus vel nunc porta tincidunt. Nullam pulvinar congue hendrerit.</p>
-            </div>
+        <div class="decoder-explanations">
+          <!-- Prefix Explanation -->
+          <div class="explanation-block active" id="srn-prefix">
+            <h4>University prefix</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">The SRN is your official student identity number, issued a few weeks after classes commence. Once allotted, it becomes your primary identifier for logging into the Academy Portal, accessing the App, registering for courses, exams, and assignments.</p>
+          </div>
+          <br>
+          <!-- Campus Explanation -->
+          <div class="explanation-block" id="srn-camp">
+            <h4>Campus Division Code</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">
+              Identifies your academic campus:<br>
+              <strong>1</strong> = Ring Road (RR) Campus<br>
+              <strong>2</strong> = Electronic City (EC) Campus
+            </p>
+          </div>
+          <br>
+          <!-- Level Explanation -->
+          <div class="explanation-block" id="srn-level">
+            <h4>Academic Level</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">Defines the degree level category: <strong>UG</strong> for Undergraduate programmes, and <strong>PG</strong> for Postgraduate programmes.</p>
+          </div>
+          <br>
+
+          <!-- Year Explanation -->
+          <div class="explanation-block" id="srn-year">
+            <h4>Year of Enrolment</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">The last two digits of your year of admission (e.g. 26 represents a student admitted in 2026).</p>
+          </div>
+          <br>
+          <!-- Dept Explanation -->
+          <div class="explanation-block" id="srn-dept">
+            <h4>Academic Branch Code</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">
+              Represents your program department:<br>
+              <strong>CS</strong> = Computer Science • <strong>AM</strong> = CS (AI &amp; ML)<br>
+              <strong>EC</strong> = Electronics &amp; Comm. • <strong>BT</strong> = Biotechnology<br>
+              <strong>ME</strong> = Mechanical • <strong>BD</strong> = Design<br>
+              <strong>BA</strong> = BCA • <strong>BB</strong> = BBA • <strong>BL</strong> = BBA LLB<br>
+              <strong>BC</strong> = B.Com • <strong>PY</strong> = Psychology
+            </p>
+          </div>
+          <br>
+          <!-- Num Explanation -->
+          <div class="explanation-block" id="srn-num">
+            <h4>Unique Roll Sequence</h4>
+            <p style="font-size:0.9rem; margin-top:0.4rem;">A unique 3-digit student roll index sequence within your branch (e.g., 999).</p>
           </div>
         </div>
       </section>
 
+    </div>
+
+    <!-- Tip card -->
+    <div class="pixel-card" style="padding:2.5rem; text-align:center; max-width:800px; margin: 0 auto 4.5rem;">
+      <h3 style="font-size:1.45rem; margin-bottom:0.8rem;">💡 Tip: Memorize your SRN as early as possible</h3>
+      <p style="font-size:0.95rem;">You'll be asked for it frequently - whether it's for examinations, assignments, lab records, club registrations, or interacting with university portals. It will be printed on your ID card, but it is best to memorize it.</p>
     </div>
 
   </main>
@@ -178,7 +214,7 @@
       </a>
       <div class="nav-footer-center">
         <a href="index.html" class="nav-footer-center-btn" aria-label="Back to Handbook Index">
-          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
         </a>
       </div>
       <a href="credits-gpa.html" class="nav-footer-btn next-btn">
@@ -198,7 +234,7 @@
   <!-- Floating WPM Speed Gauge -->
   <div class="reading-speed-blob">
     <svg class="speed-pixel-icon" viewBox="0 0 24 24">
-      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z" />
+      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z"></path>
     </svg>
     <div class="speed-metrics">
       <span class="speed-label">READ SPEED</span>
@@ -208,6 +244,8 @@
     <div class="speed-progress-bar" id="wpmProgressBar"></div>
   </div>
 
+  <script src="js/search-index.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 </html>

@@ -10,37 +10,35 @@ const handbookChapters = [
   { num: "Chapter VI", title: "Assignments & Labs", url: "assignments.html", desc: "Details of lab evaluations, written portfolios, physics and chemistry practical logs, and computer programming lab grading rubrics." },
   { num: "Chapter VII", title: "SRN & PRN Decoded", url: "srn-prn.html", desc: "Learn how to decode the numbers that identify your academic records: Student Registration Number and Permanent Registration Number." },
   { num: "Chapter VIII", title: "Credits & GPA", url: "credits-gpa.html", desc: "An interactive breakdown of graduation requisites, mark distributions, course grading tables, and our live GPA estimator tool." },
-  { num: "Chapter IX", title: "Bootstrap Induction", url: "bootstrap.html", desc: "Your induction into the campus life: color groups, mechanical, biotechnology, community service projects, and packing checklist." }
+  { num: "Chapter IX", title: "Scholarships", url: "scholarships.html", desc: "Explore the MRD and CNR scholarships, distinction awards, eligibility requirements, and branch calculations across campuses." },
+  { num: "Chapter X", title: "Bootstrap Induction", url: "bootstrap.html", desc: "Your induction into campus life: rotating sets, color group assignments, community development service, and a packing checklist." },
+  { num: "Chapter XI", title: "About Campuses, Clubs, &amp; Fests", url: "clubs-fests.html", desc: "About Campuses, Clubs, and Fests - To be featured in the next launch." }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  
-  // ==========================================================================
-  // PIXEL CLOUD TRANSITION PAGE ENTRY (SLIDE AWAY)
-  // ==========================================================================
+// BFCache navigation recovery and load handlers
+window.addEventListener('pageshow', (event) => {
   const cloudOverlay = document.getElementById('pixelCloudOverlay');
   if (cloudOverlay) {
-    // Reveal page by sliding clouds out
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        cloudOverlay.classList.remove('active');
-      }, 100);
-    });
-    // Fallback safe release
-    setTimeout(() => {
-      cloudOverlay.classList.remove('active');
-    }, 400);
+    cloudOverlay.classList.remove('active');
   }
-
-  // Safe release of page loader curtain
   const pageLoader = document.getElementById('pageLoader');
   if (pageLoader) {
-    window.addEventListener('load', () => {
-      pageLoader.classList.add('hide');
-    });
-    setTimeout(() => {
-      pageLoader.classList.add('hide');
-    }, 450);
+    pageLoader.classList.add('hide');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ==========================================================================
+  // PLATFORM SHORTCUT DETECTION (Ctrl+K for Win, ⌘K for Mac)
+  // ==========================================================================
+  const searchBtn = document.getElementById('searchBtn');
+  if (searchBtn) {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.userAgent.toUpperCase().indexOf('MAC') >= 0;
+    const kbd = searchBtn.querySelector('kbd');
+    if (kbd) {
+      kbd.textContent = isMac ? '⌘K' : 'Ctrl+K';
+    }
   }
 
   // ==========================================================================
@@ -82,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gamified CPS Pop tracker
     const now = Date.now();
     clickTimestamps.push(now);
-    // Filter clicks within the last 1 second
     clickTimestamps = clickTimestamps.filter(t => now - t < 1000);
     const cpsCount = clickTimestamps.length;
 
@@ -159,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const isoMap = document.getElementById('isometricMap');
   const landmarks = document.querySelectorAll('.map-landmark');
+  const cloudOverlay = document.getElementById('pixelCloudOverlay');
 
   if (isoMap && landmarks.length) {
     landmarks.forEach(landmark => {
@@ -285,26 +283,48 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
 
   // ==========================================================================
-  // COOL UI CUSTOM DROPDOWNS (SELECT SELECTORS) & SGPA RE-CALCULATION
+  // DYNAMIC CYCLE GPA ESTIMATOR WITH BUBBLY GRADE STEPPERS
   // ==========================================================================
   const gpaForm = document.getElementById('gpaForm');
   const gpaOutput = document.getElementById('gpaOutput');
+  const gpaCalculatorRows = document.getElementById('gpaCalculatorRows');
+
+  const physicsCycleSubjects = [
+    { name: "Mathematics I (M1)", credits: 4 },
+    { name: "Engineering Physics", credits: 5 },
+    { name: "Basic Mechanical Eng", credits: 4 },
+    { name: "Basic Electrical Eng", credits: 4 },
+    { name: "Environmental Studies (EVS)", credits: 2 },
+    { name: "Problem Solving with Python", credits: 5 }
+  ];
+
+  const chemistryCycleSubjects = [
+    { name: "Mathematics II (M2)", credits: 4 },
+    { name: "Engineering Chemistry", credits: 5 },
+    { name: "Mechanical Statistics", credits: 4 },
+    { name: "Electronic Principles", credits: 4 },
+    { name: "Constitution of India", credits: 2 },
+    { name: "Problem Solving with C", credits: 5 }
+  ];
+
+  const grades = ['F', 'E', 'D', 'C', 'B', 'A', 'S'];
 
   const calculateGPA = () => {
-    if (!gpaForm || !gpaOutput) return;
+    if (!gpaCalculatorRows || !gpaOutput) return;
 
-    const rows = gpaForm.querySelectorAll('.calc-row');
+    const activeToggle = document.querySelector('.cycle-toggle.active');
+    const cycle = activeToggle ? activeToggle.getAttribute('data-cycle') : 'physics';
+    const subjects = cycle === 'physics' ? physicsCycleSubjects : chemistryCycleSubjects;
+
     let totalPoints = 0;
     let totalCredits = 0;
 
-    rows.forEach(row => {
-      const creditInput = row.querySelector('.calc-input');
-      const selectEl = row.querySelector('select');
-      if (creditInput && selectEl) {
-        const credits = parseFloat(creditInput.value) || 0;
-        const grade = selectEl.value;
+    const valEls = gpaCalculatorRows.querySelectorAll('.grade-stepper-val');
+    valEls.forEach((valEl, idx) => {
+      const grade = valEl.textContent;
+      const sub = subjects[idx];
+      if (sub) {
         let points = 0;
-
         switch(grade) {
           case 'S': points = 10; break;
           case 'A': points = 9; break;
@@ -314,9 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
           case 'E': points = 5; break;
           case 'F': points = 0; break;
         }
-
-        totalPoints += (credits * points);
-        totalCredits += credits;
+        totalPoints += (sub.credits * points);
+        totalCredits += sub.credits;
       }
     });
 
@@ -328,68 +347,88 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const initCustomSelects = () => {
-    const selectContainers = document.querySelectorAll('.custom-select-container');
+  const bindStepperListeners = () => {
+    const minusBtns = document.querySelectorAll('.minus-btn');
+    const plusBtns = document.querySelectorAll('.plus-btn');
 
-    selectContainers.forEach(container => {
-      const trigger = container.querySelector('.custom-select-trigger');
-      const options = container.querySelectorAll('.custom-option');
-      const nativeSelect = container.querySelector('select');
-
-      if (!trigger || !options.length) return;
-
-      trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectContainers.forEach(c => {
-          if (c !== container) c.classList.remove('active');
-        });
-        container.classList.toggle('active');
-      });
-
-      options.forEach(option => {
-        option.addEventListener('click', (e) => {
-          e.stopPropagation();
-
-          options.forEach(o => o.classList.remove('selected'));
-          option.classList.add('selected');
-
-          const text = option.textContent;
-          const val = option.getAttribute('data-value');
-
-          trigger.textContent = text;
-
-          if (nativeSelect) {
-            nativeSelect.value = val;
-            nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    minusBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = btn.getAttribute('data-index');
+        const valEl = document.querySelector(`.grade-stepper-val[data-index="${idx}"]`);
+        if (valEl) {
+          const currentGrade = valEl.textContent;
+          let gradeIdx = grades.indexOf(currentGrade);
+          if (gradeIdx > 0) {
+            valEl.textContent = grades[gradeIdx - 1];
+            calculateGPA();
           }
-
-          container.classList.remove('active');
-        });
+        }
       });
     });
 
-    document.addEventListener('click', () => {
-      selectContainers.forEach(c => c.classList.remove('active'));
+    plusBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = btn.getAttribute('data-index');
+        const valEl = document.querySelector(`.grade-stepper-val[data-index="${idx}"]`);
+        if (valEl) {
+          const currentGrade = valEl.textContent;
+          let gradeIdx = grades.indexOf(currentGrade);
+          if (gradeIdx < grades.length - 1) {
+            valEl.textContent = grades[gradeIdx + 1];
+            calculateGPA();
+          }
+        }
+      });
     });
   };
 
-  initCustomSelects();
+  const renderGPACalculator = (cycle) => {
+    if (!gpaCalculatorRows) return;
 
-  if (gpaForm && gpaOutput) {
-    gpaForm.querySelectorAll('.calc-input').forEach(input => {
-      input.addEventListener('input', calculateGPA);
+    const subjects = cycle === 'physics' ? physicsCycleSubjects : chemistryCycleSubjects;
+    gpaCalculatorRows.innerHTML = '';
+
+    subjects.forEach((sub, index) => {
+      const row = document.createElement('div');
+      row.className = 'calc-row';
+      row.innerHTML = `
+        <span style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">${sub.name}</span>
+        <span class="calc-row-credits">Credits: ${sub.credits}</span>
+        
+        <div class="grade-stepper-container">
+          <button class="btn-stepper minus-btn" type="button" data-index="${index}" aria-label="Decrease Grade">-</button>
+          <span class="grade-stepper-val" data-index="${index}">A</span>
+          <button class="btn-stepper plus-btn" type="button" data-index="${index}" aria-label="Increase Grade">+</button>
+        </div>
+      `;
+      gpaCalculatorRows.appendChild(row);
     });
-    gpaForm.querySelectorAll('select').forEach(sel => {
-      sel.addEventListener('change', calculateGPA);
-    });
-    // Initial run
+
+    bindStepperListeners();
     calculateGPA();
+  };
+
+  // Initialize cycle selector event listeners
+  const cycleToggles = document.querySelectorAll('.cycle-toggle');
+  cycleToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      cycleToggles.forEach(t => t.classList.remove('active'));
+      toggle.classList.add('active');
+      const cycle = toggle.getAttribute('data-cycle');
+      renderGPACalculator(cycle);
+    });
+  });
+
+  // Initial calculation run
+  if (gpaCalculatorRows) {
+    const activeToggle = document.querySelector('.cycle-toggle.active');
+    const initCycle = activeToggle ? activeToggle.getAttribute('data-cycle') : 'physics';
+    renderGPACalculator(initCycle);
   }
 
   // ==========================================================================
   // GLOBAL SEARCH OVERLAY & RESULTS GENERATOR
   // ==========================================================================
-  const searchBtn = document.getElementById('searchBtn');
   const searchOverlay = document.getElementById('searchOverlay');
   const closeSearch = document.getElementById('closeSearch');
   const searchInput = document.getElementById('searchInput');
@@ -422,29 +461,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
   function renderSearchResults(query) {
     if (!searchResults) return;
     searchResults.innerHTML = '';
-    
-    const filtered = handbookChapters.filter(ch => 
-      ch.title.toLowerCase().includes(query.toLowerCase()) || 
-      ch.desc.toLowerCase().includes(query.toLowerCase()) ||
-      ch.num.toLowerCase().includes(query.toLowerCase())
+
+    if (!query.trim()) {
+      searchResults.innerHTML = '<div style="text-align: center; color: var(--color-text-muted); padding: 2rem; font-family: var(--font-pixel);">Type to search the entire handbook...</div>';
+      return;
+    }
+
+    const normalizedQuery = query.toLowerCase().trim();
+    // Reference global searchIndex (loaded from js/search-index.js)
+    const activeIndex = typeof searchIndex !== 'undefined' ? searchIndex : [];
+    const filtered = activeIndex.filter(ch => 
+      ch.title.toLowerCase().includes(normalizedQuery) || 
+      ch.desc.toLowerCase().includes(normalizedQuery) ||
+      ch.num.toLowerCase().includes(normalizedQuery) ||
+      ch.content.toLowerCase().includes(normalizedQuery)
     );
 
     if (filtered.length === 0) {
-      searchResults.innerHTML = '<div style="text-align: center; color: var(--color-text-muted); padding: 2rem; font-family: var(--font-pixel);">No matching chapters found.</div>';
+      searchResults.innerHTML = '<div style="text-align: center; color: var(--color-text-muted); padding: 2rem; font-family: var(--font-pixel);">No matching results found.</div>';
       return;
     }
 
     filtered.forEach(ch => {
+      let snippet = ch.desc;
+      const contentLower = ch.content.toLowerCase();
+      const queryIdx = contentLower.indexOf(normalizedQuery);
+
+      if (queryIdx !== -1) {
+        const start = Math.max(0, queryIdx - 60);
+        const end = Math.min(ch.content.length, queryIdx + normalizedQuery.length + 60);
+        let slice = ch.content.slice(start, end);
+        
+        if (start > 0) slice = '...' + slice;
+        if (end < ch.content.length) slice = slice + '...';
+
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        snippet = slice.replace(regex, '<mark style="background: var(--color-brass); color: var(--color-bg-deep); font-weight: bold; padding: 0.1rem 0.2rem;">$1</mark>');
+      } else {
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        snippet = snippet.replace(regex, '<mark style="background: var(--color-brass); color: var(--color-bg-deep); font-weight: bold; padding: 0.1rem 0.2rem;">$1</mark>');
+      }
+
+      const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+      const highlightedTitle = ch.title.replace(regex, '<mark style="background: var(--color-brass); color: var(--color-bg-deep); font-weight: bold; padding: 0.1rem 0.2rem;">$1</mark>');
+      const highlightedNum = ch.num.replace(regex, '<mark style="background: var(--color-brass); color: var(--color-bg-deep); font-weight: bold; padding: 0.1rem 0.2rem;">$1</mark>');
+
       const item = document.createElement('a');
       item.href = ch.url;
       item.className = 'search-item';
       item.innerHTML = `
-        <div class="search-item-num">${ch.num}</div>
-        <div class="search-item-title">${ch.title}</div>
-        <div class="search-item-desc">${ch.desc}</div>
+        <div class="search-item-num">${highlightedNum}</div>
+        <div class="search-item-title">${highlightedTitle}</div>
+        <div class="search-item-desc">${snippet}</div>
       `;
       searchResults.appendChild(item);
     });

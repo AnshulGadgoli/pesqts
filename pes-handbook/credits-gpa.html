@@ -63,7 +63,7 @@
   <header class="chapter-header container">
     <span class="chapter-header-num">Chapter VIII</span>
     <h1 class="chapter-header-title">Credits &amp; GPA</h1>
-    <p class="chapter-header-quote">"Academic progress is measured in credit weights, structured assessments, and index calculations."</p>
+    <p class="chapter-header-quote">"Academic progress is measured in credit weights, structured assessments, and index calculations. Remember, GPA isn't everything; students can always recover in subsequent semesters and still achieve excellent results in placements."</p>
     <div class="chapter-header-banner-container">
       <div class="chapter-header-showcase">
         <div class="visual-block-decor"></div>
@@ -85,215 +85,188 @@
     <div class="credits-intro">
       <section>
         <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">The Credit Structure</h2>
-        <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id ex sed nisl placerat pretium. Vestibulum convallis arcu id nunc rhoncus rhoncus. Nullam hendrerit porta erat. Praesent finibus ex dolor, in tincidunt sapien varius ac. Aliquam a eros lorem. Pellentesque at egestas sapien.</p>
-        <p style="margin-top: 1rem;">Graduation requisites require a cumulative total credit threshold. Failed modules receive 0 grade points, demanding either makeup exams or complete course repeats depending on cycle rules.</p>
+        <p class="drop-cap">One of the first academic terms you'll hear at PESU is credits. Every course you complete carries a certain number of credits, and these credits, along with your grades, determine your academic progress and GPA.</p>
+        <p style="margin-top: 1rem;">To successfully complete your undergraduate programme, you'll need to earn <strong>160 credits</strong>. Most courses are assigned one of the following credit values: <strong>5, 4, or 2</strong>. Generally, lab courses carry higher credits, while other subjects may have lower credit values.</p>
+        <p style="margin-top: 1rem;"><strong>How Do You Earn Credits?</strong> You earn the entire credit value of a course only if you pass it by securing a grade between S and E. If you receive an F grade, you do not earn any credits for that course (it is an all-or-nothing system). You'll need to clear the course in a future semester to earn those credits.</p>
       </section>
 
       <!-- Formula Block -->
       <aside class="gpa-formula-box pixel-card">
-        <h3 class="formula-title">GPA Index Equation</h3>
+        <h3 class="formula-title">GPA Index Equations</h3>
         <div class="formula-display">
           \[SGPA = \frac{\sum (C_i \times G_i)}{\sum C_i}\]
         </div>
-        <p class="formula-display-sub">Where \(C_i\) represents course credits and \(G_i\) is the grade point obtained.</p>
+        <p class="formula-display-sub" style="font-size:0.8rem; margin-bottom: 1rem;">Where \(C_i\) represents course credits and \(G_i\) is the grade point obtained.</p>
+        <div class="formula-display" style="font-size:1.15rem; border-top: 1px solid var(--color-border); padding-top: 0.8rem; font-family: var(--font-pixel); line-height: 1.4; word-break: break-word; text-align: center; color: var(--color-text-primary);">
+          CGPA = Average of SGPA values
+        </div>
+        <p class="formula-display-sub" style="font-size:0.8rem;">Where CGPA is calculated simply as the average of all your semester SGPA scores.</p>
       </aside>
     </div>
 
-    <!-- Letter Grades Table -->
+    <!-- Marks Distribution Panel -->
     <section class="table-panel pixel-card">
       <div class="panel-header">
-        <h2 class="table-title">Letter Grade Distribution</h2>
+        <h2 class="table-title">Marks &amp; Grades Distribution</h2>
       </div>
+      <p style="margin-bottom: 1.5rem;">Each course is evaluated using both internal and external assessments. Weightage is split: <strong>Internal Assessment (50 marks)</strong> + <strong>End Semester Assessment (50 marks)</strong> = <strong>100 Marks</strong>.</p>
+      
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div>
+          <h4 style="color:var(--color-brass); margin-bottom:0.6rem;">Internal Assessment Components (50M)</h4>
+          <ul style="padding-left:1.2rem; font-size:0.9rem;">
+            <li>ISA 1: 20 Marks</li>
+            <li>ISA 2: 20 Marks</li>
+            <li>Assignments / Continuous Assessment: 10 Marks</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--color-brass); margin-bottom:0.6rem;">External Assessment (50M)</h4>
+          <p style="font-size:0.9rem;">The ESA is conducted for 100 marks, but the score is scaled down to 50 marks before being combined with your internal marks.</p>
+          <p style="font-size:0.9rem; color:var(--color-text-secondary); margin-top:0.4rem;">Final Marks = Internal (50) + Scaled ESA (50)</p>
+        </div>
+      </div>
+
+      <div class="pixel-card" style="padding:1.5rem; background: var(--color-bg-paper); margin-bottom: 2.5rem;">
+        <h4 style="color:var(--color-brass); margin-bottom:0.6rem;">🧪 Lab-Integrated Courses</h4>
+        <p style="font-size:0.9rem;">Some subjects are lab-integrated courses where both theory and laboratory components contribute. Marks: ISA + Assignments (Internal) 50, ESA (Theory) 100, Laboratory Component 20, Total Raw Marks 120.</p>
+      </div>
+
+      <!-- Grade scale table -->
       <div class="responsive-table-wrapper">
         <table class="lux-table" style="width:100%; border-collapse:collapse;">
           <thead>
             <tr>
-              <th style="text-align:left;">Marks Range (%)</th>
-              <th style="text-align:left;">Letter Grade</th>
-              <th style="text-align:left;">Grade Value</th>
-              <th style="text-align:left;">Academic Status</th>
+              <th style="text-align:left;">Grade</th>
+              <th style="text-align:left;">Meaning</th>
+              <th style="text-align:left;">Marks Range</th>
+              <th style="text-align:left;">Grade Point</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>90 – 100</td>
               <td>S</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">10.0</td>
               <td>Outstanding</td>
+              <td>90–100</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">10</td>
             </tr>
             <tr>
-              <td>80 – 89</td>
               <td>A</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">9.0</td>
               <td>Excellent</td>
+              <td>80–89</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">9</td>
             </tr>
             <tr>
-              <td>70 – 79</td>
               <td>B</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">8.0</td>
               <td>Very Good</td>
+              <td>70–79</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">8</td>
             </tr>
             <tr>
-              <td>60 – 69</td>
               <td>C</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">7.0</td>
               <td>Good</td>
+              <td>60–69</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">7</td>
             </tr>
             <tr>
-              <td>50 – 59</td>
               <td>D</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">6.0</td>
-              <td>Above Average</td>
+              <td>Fair</td>
+              <td>50–59</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">6</td>
             </tr>
             <tr>
-              <td>40 – 49</td>
               <td>E</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">5.0</td>
-              <td>Average / Pass</td>
+              <td>Satisfactory</td>
+              <td>40–49</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">5</td>
             </tr>
             <tr>
-              <td>&lt; 40</td>
               <td>F</td>
-              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 700;">0.0</td>
-              <td>Fail / Repeat Required</td>
+              <td>Fail</td>
+              <td>0–39</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">4</td>
+            </tr>
+            <tr>
+              <td>W</td>
+              <td>Withdrawn</td>
+              <td>—</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">0</td>
+            </tr>
+            <tr>
+              <td>AP</td>
+              <td>Audit Pass</td>
+              <td>40–100</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">0</td>
+            </tr>
+            <tr>
+              <td>AF</td>
+              <td>Audit Fail</td>
+              <td>0–39</td>
+              <td style="color: var(--color-brass); font-family: var(--font-pixel); font-weight: 500;">0</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <p style="margin-top:1.2rem; font-size:0.85rem; color:var(--color-text-muted);">Note: Although an F grade has a point value of 4 in the grading table, it is a failed course. It does not earn credits and negatively impacts your GPA.</p>
     </section>
 
+    <!-- Calculation Examples -->
+    <section class="pixel-card" style="padding: 2.5rem; margin-bottom: 4.5rem;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.2rem; border-bottom: 2px solid var(--color-border); padding-bottom: 0.4rem;">Grade Calculation Examples</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+        <div>
+          <h4 style="color:var(--color-brass); margin-bottom:0.5rem;">Subject without Lab</h4>
+          <p style="font-size: 0.88rem; font-family: var(--font-pixel); letter-spacing:0.04em;">ISA = 35/40<br>Assignment = 10/10<br>ESA = 82/100 (Scaled to 41/50)</p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">Internal (45) + Scaled ESA (41) = <strong>86 Marks</strong> (Letter Grade: <strong>A</strong>, Grade Point: <strong>9</strong>)</p>
+        </div>
+        <div>
+          <h4 style="color:var(--color-brass); margin-bottom:0.5rem;">Subject with Lab (Integrated)</h4>
+          <p style="font-size: 0.88rem; font-family: var(--font-pixel); letter-spacing:0.04em;">ISA = 35/40<br>Assignment = 10/10<br>Lab = 18/20<br>ESA = 82/100 (Scaled to 41/50)</p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">Internal (45) + Scaled ESA (41) + Lab (18) = <strong>104 / 120 Marks</strong> (Letter Grade: <strong>S</strong>, Grade Point: <strong>10</strong>)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subject Codes Code Breakdown -->
+    <section class="pixel-card" style="padding: 2.5rem; margin-bottom: 4.5rem;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; border-bottom:2px solid var(--color-border); padding-bottom:0.4rem;">Understanding Subject Codes</h3>
+      <p style="margin-bottom: 1.2rem;">Every subject at PES University follows a structured subject code: <strong>UE JY SC Y C N A/B</strong></p>
+      <div style="font-family: var(--font-pixel); font-size: 0.9rem; letter-spacing:0.04em; color:var(--color-text-secondary); line-height: 1.8;">
+        • <strong style="color:var(--color-brass);">UE:</strong> Undergraduate Engineering<br>
+        • <strong style="color:var(--color-brass);">JY:</strong> Year of Admission (e.g. 26 = 2026 Batch)<br>
+        • <strong style="color:var(--color-brass);">SC:</strong> Subject Category (e.g., CS, EC, ME, CY, PH, MA)<br>
+        • <strong style="color:var(--color-brass);">Y:</strong> Year of Study (1 = 1st Year, 2 = 2nd Year, etc.)<br>
+        • <strong style="color:var(--color-brass);">C:</strong> Number of Credits<br>
+        • <strong style="color:var(--color-brass);">N:</strong> Serial Number of the Subject within that credit category<br>
+        • <strong style="color:var(--color-brass);">A / B:</strong> Semester Code (A = Odd Semester, B = Even Semester)<br>
+        • <strong>Example:</strong> <code style="color:white; background:var(--color-bg-paper); padding:0.1rem 0.4rem; border:1px solid var(--color-border);">UE26CY151A</code> represents: Undergraduate Eng., 2026 Batch, Chemistry, 1st Year, 5-credit, 1st subject, Odd Semester.
+      </div>
+    </section>
     <!-- Interactive GPA Estimator Box -->
     <section class="gpa-calculator-box pixel-card">
       <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Interactive GPA Estimator</h2>
-      
       <div class="calc-grid">
         <form id="gpaForm" class="calc-rows" onsubmit="return false;">
+          <!-- Cycle Selector Toggles -->
+          <div class="cycle-selector-box">
+            <button class="btn-brass cycle-toggle active" data-cycle="physics" type="button">Physics Cycle</button>
+            <button class="btn-brass cycle-toggle" data-cycle="chemistry" type="button">Chemistry Cycle</button>
+          </div>
           
-          <!-- Subject 1 Row -->
-          <div class="calc-row">
-            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course I (Math)</span>
-            <input type="number" class="calc-input" placeholder="Credits" value="4" min="1" max="5" aria-label="Course 1 Credits">
-            
-            <!-- Cool Custom Select UI -->
-            <div class="custom-select-container">
-              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">B Grade (8)</div>
-              <div class="custom-select-options" role="listbox">
-                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
-                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
-                <div class="custom-option selected" role="option" data-value="B">B Grade (8)</div>
-                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
-                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
-                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
-                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
-              </div>
-              <select style="display:none;" aria-label="Hidden Course 1 Grade">
-                <option value="S">S</option><option value="A">A</option><option value="B" selected>B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Subject 2 Row -->
-          <div class="calc-row">
-            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course II (Physics/Chem)</span>
-            <input type="number" class="calc-input" placeholder="Credits" value="4" min="1" max="5" aria-label="Course 2 Credits">
-            
-            <!-- Cool Custom Select UI -->
-            <div class="custom-select-container">
-              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">A Grade (9)</div>
-              <div class="custom-select-options" role="listbox">
-                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
-                <div class="custom-option selected" role="option" data-value="A">A Grade (9)</div>
-                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
-                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
-                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
-                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
-                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
-              </div>
-              <select style="display:none;" aria-label="Hidden Course 2 Grade">
-                <option value="S">S</option><option value="A" selected>A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Subject 3 Row -->
-          <div class="calc-row">
-            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course III (Basic Eng.)</span>
-            <input type="number" class="calc-input" placeholder="Credits" value="3" min="1" max="5" aria-label="Course 3 Credits">
-            
-            <!-- Cool Custom Select UI -->
-            <div class="custom-select-container">
-              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">S Grade (10)</div>
-              <div class="custom-select-options" role="listbox">
-                <div class="custom-option selected" role="option" data-value="S">S Grade (10)</div>
-                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
-                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
-                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
-                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
-                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
-                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
-              </div>
-              <select style="display:none;" aria-label="Hidden Course 3 Grade">
-                <option value="S" selected>S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Subject 4 Row -->
-          <div class="calc-row">
-            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course IV (Elective)</span>
-            <input type="number" class="calc-input" placeholder="Credits" value="3" min="1" max="5" aria-label="Course 4 Credits">
-            
-            <!-- Cool Custom Select UI -->
-            <div class="custom-select-container">
-              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">C Grade (7)</div>
-              <div class="custom-select-options" role="listbox">
-                <div class="custom-option" role="option" data-value="S">S Grade (10)</div>
-                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
-                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
-                <div class="custom-option selected" role="option" data-value="C">C Grade (7)</div>
-                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
-                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
-                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
-              </div>
-              <select style="display:none;" aria-label="Hidden Course 4 Grade">
-                <option value="S">S</option><option value="A">A</option><option value="B">B</option><option value="C" selected>C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Subject 5 Row -->
-          <div class="calc-row">
-            <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">Course V (Lab)</span>
-            <input type="number" class="calc-input" placeholder="Credits" value="2" min="1" max="5" aria-label="Course 5 Credits">
-            
-            <!-- Cool Custom Select UI -->
-            <div class="custom-select-container">
-              <div class="custom-select-trigger" role="combobox" aria-expanded="false" aria-haspopup="listbox">S Grade (10)</div>
-              <div class="custom-select-options" role="listbox">
-                <div class="custom-option selected" role="option" data-value="S">S Grade (10)</div>
-                <div class="custom-option" role="option" data-value="A">A Grade (9)</div>
-                <div class="custom-option" role="option" data-value="B">B Grade (8)</div>
-                <div class="custom-option" role="option" data-value="C">C Grade (7)</div>
-                <div class="custom-option" role="option" data-value="D">D Grade (6)</div>
-                <div class="custom-option" role="option" data-value="E">E Grade (5)</div>
-                <div class="custom-option" role="option" data-value="F">F Grade (0)</div>
-              </div>
-              <select style="display:none;" aria-label="Hidden Course 5 Grade">
-                <option value="S" selected>S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option>
-              </select>
-            </div>
-          </div>
-
+          <!-- Target rows injected dynamically -->
+          <div id="gpaCalculatorRows" style="display:flex; flex-direction:column; gap:1.2rem;"></div>
         </form>
 
         <!-- Result -->
         <div class="calc-result-panel">
           <span style="font-family: var(--font-pixel); font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); letter-spacing: 0.05em; text-transform: uppercase;">Estimated SGPA</span>
-          <div class="gpa-score-display" id="gpaOutput">8.88</div>
-          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Real-time projection based on credit weights.</p>
+          <div class="gpa-score-display" id="gpaOutput">9.00</div>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Real-time projection based on credits.</p>
         </div>
       </div>
-      
+      <p style="margin-top: 1.5rem; font-size: 0.88rem; color: var(--color-text-secondary); text-align: center; width: 100%;">
+        <strong>Note:</strong> If the Chemistry Cycle is your first cycle, please assume Math II to be Math I, and Problem Solving with C to be Problem Solving with Python for the purpose of calculator entries.
+      </p>
     </section>
 
   </main>
@@ -310,9 +283,9 @@
           <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
         </a>
       </div>
-      <a href="bootstrap.html" class="nav-footer-btn next-btn">
+      <a href="scholarships.html" class="nav-footer-btn next-btn">
         <span class="nav-footer-label">Next Chapter</span>
-        <span class="nav-footer-title">Chapter IX: Bootstrap Induction</span>
+        <span class="nav-footer-title">Chapter IX: Scholarships</span>
       </a>
     </div>
   </footer>
@@ -340,6 +313,7 @@
   <!-- Render LaTeX equations -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="js/search-index.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
