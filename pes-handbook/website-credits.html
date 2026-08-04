@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter XIII: Website Credits | PES University Handbook</title>
+  <meta name="description" content="Meet the creators and developers behind the PES University Student Handbook.">
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <style>
+    .contributors-section {
+      margin-bottom: 4.5rem;
+    }
+    .contributors-title {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 0.5rem;
+      color: #ffffff;
+    }
+    .contributors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .contributor-card {
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contributor-avatar-container {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1.5rem;
+      border: 2px solid var(--color-border);
+      background: var(--color-bg-paper);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      image-rendering: pixelated;
+    }
+    .contributor-avatar-container::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 2px dashed rgba(255, 255, 255, 0.05);
+    }
+    .contributor-avatar-placeholder {
+      width: 64px;
+      height: 64px;
+      fill: var(--color-brass);
+    }
+    .contributor-name {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: #ffffff;
+    }
+    .contributor-tag {
+      font-family: var(--font-pixel);
+      font-size: 0.85rem;
+      color: var(--color-brass);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .contributor-socials {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border: 2px solid var(--color-border);
+      background: var(--color-bg-paper);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: var(--transition-pixel);
+      color: var(--color-text-secondary);
+    }
+    .social-btn:hover {
+      border-color: var(--color-border-hover);
+      background: var(--color-bg-deep);
+      transform: translateY(-2px);
+      color: var(--color-brass);
+    }
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Pixel Cloud Transition Overlay -->
+  <div class="pixel-cloud-overlay active" id="pixelCloudOverlay">
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z" />
+    </svg>
+  </div>
+
+  <!-- Page Loader Shutter -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <svg class="loader-emblem" viewBox="0 0 100 100">
+        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Floating Nav Capsule -->
+  <nav class="floating-nav">
+    <div class="nav-brand">
+      <a href="index.html">PES<span>.</span></a>
+    </div>
+    <div class="breadcrumbs">
+      <a href="index.html">Handbook</a>
+      <span class="separator">/</span>
+      <span class="current">Chapter XVII: Website Credits</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-search" id="searchBtn" aria-label="Open search modal">
+        Search <kbd>Ctrl+K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search parameters..." autocomplete="off">
+        <button class="btn-close-search" id="closeSearch" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Chapter Header -->
+  <header class="chapter-header container">
+    <span class="chapter-header-num">Chapter XVII</span>
+    <h1 class="chapter-header-title">Website Credits</h1>
+    <p class="chapter-header-quote">"The designers and builders who assembled this handbook codebase and retro interface."</p>
+    <div class="chapter-header-banner-container">
+      <div class="chapter-header-showcase">
+        <div class="visual-block-decor"></div>
+        <span class="showcase-label">DEVELOPMENT TEAM</span>
+        <div class="showcase-title">CONTRIBUTORS • ARCHITECTS • DESIGNERS</div>
+      </div>
+    </div>
+    <div class="ornamental-divider">
+      <div class="divider-pixel"></div>
+      <div class="divider-center-pixel"></div>
+      <div class="divider-pixel"></div>
+    </div>
+  </header>
+
+  <!-- Content Block -->
+  <main class="container">
+    
+    <!-- Ring Road Campus Contributors -->
+    <section class="contributors-section">
+      <h2 class="contributors-title">Ring Road Campus (RRC)</h2>
+      <div class="contributors-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); justify-content: center;">
+        
+        <!-- Sanjit Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/sanjit.png" alt="Sanjit" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Sanjit</h3>
+          <span class="contributor-tag">RRC - ECE 27'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/sanjit-ma/" target="_blank" class="social-btn" aria-label="Sanjit's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/sanjitma" target="_blank" class="social-btn" aria-label="Sanjit's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- INSTAGRAM LINK -->
+            <a href="https://www.instagram.com/sunnysnivellus?igsh=ZW9yNnR0NHhzOGY5" target="_blank" class="social-btn" aria-label="Sanjit's Instagram">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" class="social-icon" alt="Instagram" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Anshul Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/anshul.png" alt="Anshul" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Anshul</h3>
+          <span class="contributor-tag">RRC - AIML 29'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/anshul-gadgoli" target="_blank" class="social-btn" aria-label="Anshul's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/AnshulGadgoli/" target="_blank" class="social-btn" aria-label="Anshul's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- MEDIUM LINK -->
+            <a href="https://medium.com/@anshul.gadgoli" target="_blank" class="social-btn" aria-label="Anshul's Medium">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=medium.com" class="social-icon" alt="Medium" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Electronic City Campus Contributors -->
+    <section class="contributors-section">
+      <h2 class="contributors-title">Electronic City Campus (ECC)</h2>
+      <div class="contributors-grid">
+        
+        <!-- Sriniket Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/sriniket.png" alt="Sriniket" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Sriniket</h3>
+          <span class="contributor-tag">ECC - CSE 28'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/sriniket" target="_blank" class="social-btn" aria-label="Sriniket's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/sriniket-d" target="_blank" class="social-btn" aria-label="Sriniket's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- INSTAGRAM LINK -->
+            <a href="https://www.instagram.com/sriniket_13/" target="_blank" class="social-btn" aria-label="Sriniket's Instagram">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" class="social-icon" alt="Instagram" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Sreevatshan Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/sreevatshan.png" alt="Sreevatshan" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Sreevatshan</h3>
+          <span class="contributor-tag">ECC - CSE 29'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/sreevatshan-s-9a3873393?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn" aria-label="Sreevatshan's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/sreevats30" target="_blank" class="social-btn" aria-label="Sreevatshan's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- INSTAGRAM LINK -->
+            <a href="https://www.instagram.com/_sreevats_?igsh=MWVqbnZqMGRpNTZ2dQ==" target="_blank" class="social-btn" aria-label="Sreevatshan's Instagram">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" class="social-icon" alt="Instagram" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Abhishek Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/abhishek.png" alt="Abhishek" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Abhishek</h3>
+          <span class="contributor-tag">ECC - CSE 29'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/abhishek-d-5b0588262/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bgqfbko%2BXTzyc3N8XvAj9QA%3D%3D" target="_blank" class="social-btn" aria-label="Abhishek's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/planksconstant" target="_blank" class="social-btn" aria-label="Abhishek's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- INSTAGRAM LINK -->
+            <a href="https://www.instagram.com/abhishek_d_1967?igsh=cDYzYnV1dzNid2M5" target="_blank" class="social-btn" aria-label="Abhishek's Instagram">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" class="social-icon" alt="Instagram" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Manav Card -->
+        <div class="contributor-card pixel-card">
+          <!-- Space for Image: Replace src below when contributor photo is available -->
+          <div class="contributor-avatar-container">
+            <!-- Place <img> tag inside here for contributor avatar -->
+            <!-- Example: <img src="images/manav.png" alt="Manav" style="width:100%; height:100%; object-fit:cover;"> -->
+            <svg class="contributor-avatar-placeholder" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 class="contributor-name">Manav</h3>
+          <span class="contributor-tag">ECC - CSE 29'</span>
+          
+          <div class="contributor-socials">
+            <!-- LINKEDIN LINK -->
+            <a href="https://www.linkedin.com/in/manav-sharma-89b60740b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn" aria-label="Manav's LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- GITHUB LINK -->
+            <a href="https://github.com/Strice1832" target="_blank" class="social-btn" aria-label="Manav's GitHub">
+              <svg class="social-icon" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+            </a>
+            <!-- INSTAGRAM LINK -->
+            <a href="https://www.instagram.com/m4navsharma?igsh=MWllenJkcnQ5cmwyZA==" target="_blank" class="social-btn" aria-label="Manav's Instagram">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" class="social-icon" alt="Instagram" style="width: 18px; height: 18px; image-rendering: pixelated;">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chapter Navigation Footer -->
+  <footer class="chapter-navigation-footer">
+    <div class="container footer-nav-inner">
+      <a href="ecc-fests.html" class="nav-footer-btn prev-btn">
+        <span class="nav-footer-label">Previous Chapter</span>
+        <span class="nav-footer-title">Chapter XVI: Fests of ECC</span>
+      </a>
+      <div class="nav-footer-center">
+        <a href="index.html" class="nav-footer-center-btn" aria-label="Back to Handbook Index">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+      </div>
+      <a href="index.html" class="nav-footer-btn next-btn">
+        <span class="nav-footer-label">Back to Main Page</span>
+        <span class="nav-footer-title">Table of Contents</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Floating WPM Speed Gauge -->
+  <div class="reading-speed-blob">
+    <svg class="speed-pixel-icon" viewBox="0 0 24 24">
+      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z" />
+    </svg>
+    <div class="speed-metrics">
+      <span class="speed-label">READ SPEED</span>
+      <span class="speed-value" id="wpmValue">--- WPM</span>
+      <span class="speed-pace" id="paceValue">COMPLETED: 0%</span>
+    </div>
+    <div class="speed-progress-bar" id="wpmProgressBar"></div>
+  </div>
+
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

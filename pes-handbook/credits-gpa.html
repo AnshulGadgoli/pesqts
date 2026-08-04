@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chapter VIII: Credits &amp; GPA | PES University Handbook</title>
   <meta name="description" content="An interactive grade point average (GPA) calculator and academic credit regulations handbook page.">
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/style.css">
   
   <!-- Vercel Web Analytics -->
@@ -12,6 +13,9 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+=======
+  <link rel="stylesheet" href="css/style.css?v=2">
+>>>>>>> b6a63b9 (Added clubs, fests, campus details and credits. Besides, slight UI changes)
 </head>
 <body>
 
@@ -69,7 +73,7 @@
   <header class="chapter-header container">
     <span class="chapter-header-num">Chapter VIII</span>
     <h1 class="chapter-header-title">Credits &amp; GPA</h1>
-    <p class="chapter-header-quote">"Academic progress is measured in credit weights, structured assessments, and index calculations. Remember, GPA isn't everything; students can always recover in subsequent semesters and still achieve excellent results in placements."</p>
+    <p class="chapter-header-quote">"Academic progress is measured in credit weights, structured assessments, and index calculations. Remember, GPA is important, but isn't everything; students can always recover in subsequent semesters and still achieve excellent results in placements."</p>
     <div class="chapter-header-banner-container">
       <div class="chapter-header-showcase">
         <div class="visual-block-decor"></div>
@@ -91,9 +95,13 @@
     <div class="credits-intro">
       <section>
         <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">The Credit Structure</h2>
+
+        <p style="margin-top: 1.2rem; color: var(--color-brass); font-weight: 500; font-family: var(--font-pixel); font-size: 0.9rem; letter-spacing: 0.04em;">💡 Credits are simply defined as the weightage given to a particular subject.</p><br>
+
         <p class="drop-cap">One of the first academic terms you'll hear at PESU is credits. Every course you complete carries a certain number of credits, and these credits, along with your grades, determine your academic progress and GPA.</p>
         <p style="margin-top: 1rem;">To successfully complete your undergraduate programme, you'll need to earn <strong>160 credits</strong>. Most courses are assigned one of the following credit values: <strong>5, 4, or 2</strong>. Generally, lab courses carry higher credits, while other subjects may have lower credit values.</p>
         <p style="margin-top: 1rem;"><strong>How Do You Earn Credits?</strong> You earn the entire credit value of a course only if you pass it by securing a grade between S and E. If you receive an F grade, you do not earn any credits for that course (it is an all-or-nothing system). You'll need to clear the course in a future semester to earn those credits.</p>
+        
       </section>
 
       <!-- Formula Block -->
@@ -121,8 +129,8 @@
         <div>
           <h4 style="color:var(--color-brass); margin-bottom:0.6rem;">Internal Assessment Components (50M)</h4>
           <ul style="padding-left:1.2rem; font-size:0.9rem;">
-            <li>ISA 1: 20 Marks</li>
-            <li>ISA 2: 20 Marks</li>
+            <li>ISA 1: 40 Marks scaled down to 20 Marks</li>
+            <li>ISA 2: 40 Marks scaled down to 20 Marks</li>
             <li>Assignments / Continuous Assessment: 10 Marks</li>
           </ul>
         </div>
@@ -218,18 +226,29 @@
 
     <!-- Calculation Examples -->
     <section class="pixel-card" style="padding: 2.5rem; margin-bottom: 4.5rem;">
-      <h3 style="font-size: 1.5rem; margin-bottom: 1.2rem; border-bottom: 2px solid var(--color-border); padding-bottom: 0.4rem;">Grade Calculation Examples</h3>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-border); padding-bottom: 0.4rem;">Grade Calculation Examples</h3>
+      
+      <div style="display:flex; flex-direction:column; gap:2.5rem;">
+        
+        <!-- Example 1 -->
         <div>
-          <h4 style="color:var(--color-brass); margin-bottom:0.5rem;">Subject without Lab</h4>
-          <p style="font-size: 0.88rem; font-family: var(--font-pixel); letter-spacing:0.04em;">ISA = 35/40<br>Assignment = 10/10<br>ESA = 82/100 (Scaled to 41/50)</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;">Internal (45) + Scaled ESA (41) = <strong>86 Marks</strong> (Letter Grade: <strong>A</strong>, Grade Point: <strong>9</strong>)</p>
+          <h4 style="color:var(--color-brass); margin-bottom:0.8rem; font-size:1.05rem;">1. Subject without lab: ISA = 35/40, ESA = 82/100, Assignment = 10/10</h4>
+          <div style="background: var(--color-bg-paper); border: 1px solid var(--color-border); padding: 1.2rem; margin-top: 0.6rem; overflow-x: auto;">
+            \[\text{ISA} + \left(\frac{\text{ESA}}{2}\right) + \text{Assignment} = 35 + 41 + 10 = \frac{86}{100}\]
+          </div>
         </div>
+
+        <!-- Example 2 -->
         <div>
-          <h4 style="color:var(--color-brass); margin-bottom:0.5rem;">Subject with Lab (Integrated)</h4>
-          <p style="font-size: 0.88rem; font-family: var(--font-pixel); letter-spacing:0.04em;">ISA = 35/40<br>Assignment = 10/10<br>Lab = 18/20<br>ESA = 82/100 (Scaled to 41/50)</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;">Internal (45) + Scaled ESA (41) + Lab (18) = <strong>104 / 120 Marks</strong> (Letter Grade: <strong>S</strong>, Grade Point: <strong>10</strong>)</p>
+          <h4 style="color:var(--color-brass); margin-bottom:0.8rem; font-size:1.05rem;">2. Subject with lab: ISA = 35/40, ESA = 82/100, Assignment = 10/10, Lab = 18/20</h4>
+          <div style="background: var(--color-bg-paper); border: 1px solid var(--color-border); padding: 1.2rem; margin-top: 0.6rem; display: flex; flex-direction: column; gap: 1rem; overflow-x: auto;">
+            \[\text{Final Score} = \left(\frac{\text{ESA} + \text{Lab}}{120} \times 50\right) + \text{ISA} + \text{Assignments}\]
+            <div style="border-top: 1px dashed var(--color-border); padding-top: 1rem;">
+              \[\text{Final Score} = \left(\frac{82 + 18}{120} \times 50\right) + 35 + 10 = 86.67\]
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -293,13 +312,6 @@
         <span class="nav-footer-label">Next Chapter</span>
         <span class="nav-footer-title">Chapter IX: Scholarships</span>
       </a>
-    </div>
-  </footer>
-
-  <!-- Base Footer -->
-  <footer class="base-footer">
-    <div class="container">
-      <p>© 2026 PES University. Reimagined with modern pixel aesthetics.</p>
     </div>
   </footer>
 

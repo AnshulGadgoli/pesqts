@@ -49,6 +49,7 @@ body {
   font-size: 0.92rem;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  padding-bottom: 8rem; /* Comfort scroll length for footer navigation */
 }
 
 /* Organic Pixel Grid Overlay (No Shadows) */
@@ -262,6 +263,7 @@ a:hover {
   border: 2px solid var(--color-border);
   overflow: hidden;
   transition: var(--transition-pixel);
+  padding: 2rem;
 }
 
 .pixel-card:hover {
@@ -611,10 +613,22 @@ a:hover {
   max-width: 800px;
   height: 460px;
   margin: 2rem auto;
-  border: 4px double var(--color-border);
-  background: #060609;
+  border: 10px solid #5b4129; /* Minecraft wood border */
+  outline: 4px solid #362213; /* Outer dark wood highlight */
+  background: #dbca9a; /* Minecraft map base color */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), inset 0 0 24px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   z-index: 2;
+}
+
+.map-viewport-wrapper, 
+.map-viewport-wrapper * {
+  cursor: url('../images/pickaxe-small.png') 30 2, auto !important;
+}
+
+.map-viewport-wrapper .map-landmark,
+.map-viewport-wrapper .map-landmark * {
+  cursor: pointer !important;
 }
 
 .isometric-map {
@@ -624,6 +638,7 @@ a:hover {
   image-rendering: pixelated;
   transition: transform 0.9s cubic-bezier(0.85, 0, 0.15, 1);
   transform-origin: 50% 50%;
+  background: #dbca9a;
 }
 
 .isometric-map.zoom-active {
@@ -634,18 +649,19 @@ a:hover {
 .map-grid-tag {
   font-family: var(--font-pixel);
   font-size: 11px;
-  font-weight: 400;
-  fill: var(--color-text-muted);
+  font-weight: bold;
+  fill: #5b4129;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.75;
   letter-spacing: 0.05em;
 }
 
 .map-wave-line {
-  stroke: #101017;
-  stroke-width: 1.5;
+  stroke: #5b4129;
+  stroke-width: 2;
   fill: none;
-  stroke-dasharray: 6,4;
+  stroke-dasharray: 4,4;
+  opacity: 0.6;
 }
 
 /* Landmark Node Circle Notation Styles */
@@ -654,22 +670,22 @@ a:hover {
 }
 
 .map-landmark-node {
-  fill: var(--color-bg-panel);
-  stroke: var(--color-border);
+  fill: #e4d0a6;
+  stroke: #5b4129;
   stroke-width: 3;
   transition: fill 0.12s steps(2), stroke 0.12s steps(2);
 }
 
 .map-landmark:hover .map-landmark-node {
-  fill: var(--color-brass) !important;
-  stroke: #ffffff !important;
+  fill: #bd1c1c !important; /* Minecraft redstone red */
+  stroke: #430909 !important;
 }
 
 .map-landmark-text {
   font-family: var(--font-pixel);
-  font-size: 15px; /* Perfect for Game Paused */
-  font-weight: 400;
-  fill: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  fill: #5b4129;
   pointer-events: none;
   text-anchor: middle;
   dominant-baseline: central;
@@ -678,7 +694,58 @@ a:hover {
 }
 
 .map-landmark:hover .map-landmark-text {
-  fill: var(--color-bg-deep) !important;
+  fill: #ffffff !important;
+}
+
+.map-treasure-x {
+  animation: pulse-glow 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Ender Pearl Projectile & Particles */
+.ender-pearl-projectile {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  image-rendering: pixelated;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+}
+
+.ender-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #14a085; /* Minecraft green-teal sparkle */
+  border: 1px solid #0f5c4b;
+  pointer-events: none;
+  z-index: 999;
+  box-shadow: 0 0 6px #1abc9c;
+  image-rendering: pixelated;
+  animation: fade-particle 0.45s forwards linear;
+}
+
+.ender-sparkle.purple {
+  background: #c63df5; /* Minecraft purple particle */
+  border: 1px solid #941bbd;
+  box-shadow: 0 0 6px #df6fff;
+}
+
+@keyframes fade-particle {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0) rotate(180deg);
+    opacity: 0;
+  }
 }
 
 .hero-subtitle {
@@ -753,12 +820,12 @@ a:hover {
   bottom: 2rem;
   background: var(--color-bg-panel);
   border: 2px solid var(--color-border);
-  padding: 0.75rem 1.2rem;
+  padding: 0.75rem 1rem;
   z-index: 1001;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  width: 220px;
+  width: 190px; /* Slightly reduced width */
   transition: border-color 0.15s steps(2);
   overflow: hidden;
 }
@@ -1180,6 +1247,11 @@ a:hover {
   border-bottom: 1px dashed var(--color-border);
 }
 
+.editorial-table th:first-child,
+.editorial-table td:first-child {
+  text-align: center;
+}
+
 .editorial-table tr:last-child td {
   border-bottom: none;
 }
@@ -1287,6 +1359,7 @@ a:hover {
 
 .timeline-content-side {
   padding: 2rem;
+  grid-row: 1;
 }
 
 .timeline-item.active .timeline-content-side {
@@ -1317,31 +1390,40 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 0.8rem;
+  padding-top: 2rem;
+  align-self: start;
+  grid-row: 1;
 }
 
 .timeline-item:nth-child(odd) .timeline-meta-side {
   grid-column: 2;
   padding-left: 2rem;
+  padding-top: 2rem !important;
+  align-self: start !important;
 }
 
 .timeline-item:nth-child(even) .timeline-meta-side {
   grid-column: 1;
   text-align: right;
   padding-right: 2rem;
+  padding-top: 2rem !important;
+  align-self: start !important;
 }
 
 .timeline-step-num {
+  display: block;
   font-family: var(--font-pixel);
   color: var(--color-brass);
   font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 0.06em;
+  margin-top: 0;
   margin-bottom: 0.3rem;
 }
 
 .timeline-title {
   font-size: 1.4rem;
+  margin-top: 0;
   margin-bottom: 0.8rem;
 }
 
@@ -2104,10 +2186,12 @@ a:hover {
   
   .timeline-content-side {
     grid-column: 1 !important;
+    grid-row: auto !important;
   }
   
   .timeline-meta-side {
     grid-column: 1 !important;
+    grid-row: auto !important;
     text-align: left !important;
     padding: 0 !important;
   }
@@ -2175,6 +2259,45 @@ a:hover {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
+}
+
+/* Chapter V Common Subjects styling */
+.sub-card {
+  padding: 1.8rem;
+}
+
+/* Scroll to Top Floating Button */
+.scroll-to-top-btn {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 6.5rem; /* Positioned directly above reading speed blob */
+  width: 36px;
+  height: 36px;
+  background: var(--color-bg-panel);
+  border: 2px solid var(--color-border);
+  color: var(--color-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+  z-index: 1001;
+  transition: var(--transition-pixel);
+  font-size: 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-to-top-btn:hover {
+  border-color: var(--color-brass);
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
 }
 
 

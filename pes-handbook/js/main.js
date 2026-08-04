@@ -12,7 +12,13 @@ const handbookChapters = [
   { num: "Chapter VIII", title: "Credits & GPA", url: "credits-gpa.html", desc: "An interactive breakdown of graduation requisites, mark distributions, course grading tables, and our live GPA estimator tool." },
   { num: "Chapter IX", title: "Scholarships", url: "scholarships.html", desc: "Explore the MRD and CNR scholarships, distinction awards, eligibility requirements, and branch calculations across campuses." },
   { num: "Chapter X", title: "Bootstrap Induction", url: "bootstrap.html", desc: "Your induction into campus life: rotating sets, color group assignments, community development service, and a packing checklist." },
-  { num: "Chapter XI", title: "About Campuses, Clubs, &amp; Fests", url: "clubs-fests.html", desc: "About Campuses, Clubs, and Fests - To be featured in the next launch." }
+  { num: "Chapter XI", title: "The Ring Road Campus (RRC)", url: "rrc-campus.html", desc: "Coming after Campus Challenge" },
+  { num: "Chapter XII", title: "Clubs of RRC", url: "rrc-clubs.html", desc: "Explore the automotive teams, innovation labs, performing arts, and debating circles at the Ring Road Campus." },
+  { num: "Chapter XIII", title: "Fests of RRC", url: "rrc-fests.html", desc: "A chronicle of the massive technical conferences, cultural showcases, and annual celebrations at Ring Road." },
+  { num: "Chapter XIV", title: "The Electronic City Campus (ECC)", url: "ecc-campus.html", desc: "Coming after Campus Challenge" },
+  { num: "Chapter XV", title: "Clubs of ECC", url: "ecc-clubs.html", desc: "Explore the diverse technical, cultural, arts, and leadership student-run clubs that drive campus life at ECC." },
+  { num: "Chapter XVI", title: "Fests of ECC", url: "ecc-fests.html", desc: "Coming soon" },
+  { num: "Chapter XVII", title: "Website Credits", url: "website-credits.html", desc: "Meet the designers, builders, and developers who created this handbook website." }
 ];
 
 // BFCache navigation recovery and load handlers
@@ -159,6 +165,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const cloudOverlay = document.getElementById('pixelCloudOverlay');
 
   if (isoMap && landmarks.length) {
+    const playSound = (type) => {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioCtx.currentTime;
+        if (type === 'throw') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.exponentialRampToValueAtTime(50, now + 0.18);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.18);
+          osc.start();
+          osc.stop(now + 0.18);
+        } else if (type === 'teleport') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(2200, now + 0.3);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+          osc.start();
+          osc.stop(now + 0.3);
+
+          const osc2 = audioCtx.createOscillator();
+          const gain2 = audioCtx.createGain();
+          osc2.connect(gain2);
+          gain2.connect(audioCtx.destination);
+          osc2.type = 'sine';
+          osc2.frequency.setValueAtTime(1400, now + 0.05);
+          osc2.frequency.exponentialRampToValueAtTime(3000, now + 0.3);
+          gain2.gain.setValueAtTime(0.1, now + 0.05);
+          gain2.gain.linearRampToValueAtTime(0.01, now + 0.3);
+          osc2.start();
+          osc2.stop(now + 0.3);
+        }
+      } catch (err) {
+        console.warn("Web AudioContext blocked/failed:", err);
+      }
+    };
+
     landmarks.forEach(landmark => {
       landmark.addEventListener('click', (e) => {
         e.preventDefault();
@@ -166,30 +218,90 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = landmark.getAttribute('data-url');
         if (!url) return;
 
-        const rect = landmark.getBoundingClientRect();
-        const mapRect = isoMap.getBoundingClientRect();
+        if (isoMap.classList.contains('zoom-active')) return;
 
-        const clickX = rect.left - mapRect.left + (rect.width / 2);
-        const clickY = rect.top - mapRect.top + (rect.height / 2);
+        const node = landmark.querySelector('.map-landmark-node');
+        if (!node) return;
 
-        const percentX = (clickX / mapRect.width) * 100;
-        const percentY = (clickY / mapRect.height) * 100;
+        const targetX = parseFloat(node.getAttribute('cx'));
+        const targetY = parseFloat(node.getAttribute('cy'));
 
-        isoMap.style.transformOrigin = `${percentX}% ${percentY}%`;
-        isoMap.style.transform = 'scale(5)';
-        isoMap.classList.add('zoom-active');
+        const wrapper = document.querySelector('.map-viewport-wrapper');
+        if (!wrapper) return;
 
-        if (cloudOverlay) {
-          setTimeout(() => {
-            cloudOverlay.classList.add('active');
-          }, 150);
-        }
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const scaleX = wrapperRect.width / 800;
+        const scaleY = wrapperRect.height / 460;
 
-        setTimeout(() => {
-          window.location.href = url;
-        }, 750);
+        const startX = wrapperRect.width / 2;
+        const startY = wrapperRect.height;
+        const endX = targetX * scaleX;
+        const endY = targetY * scaleY;
+
+        const pearl = document.createElement('img');
+        pearl.src = 'images/ender-pearl.png';
+        pearl.className = 'ender-pearl-projectile';
+        pearl.style.left = startX + 'px';
+        pearl.style.top = startY + 'px';
+        wrapper.appendChild(pearl);
+
+        playSound('throw');
+
+        const startTime = performance.now();
+        const duration = 650;
+        const peakHeight = 150;
+
+        const animatePearl = (time) => {
+          let elapsed = time - startTime;
+          let t = Math.min(elapsed / duration, 1);
+
+          const x = startX + (endX - startX) * t;
+          const y = startY + (endY - startY) * t - peakHeight * Math.sin(t * Math.PI);
+
+          pearl.style.left = x + 'px';
+          pearl.style.top = y + 'px';
+          pearl.style.transform = `translate(-50%, -50%) rotate(${t * 720}deg)`;
+
+          if (t < 1) {
+            const numParticles = Math.random() < 0.6 ? 2 : 1;
+            for (let i = 0; i < numParticles; i++) {
+              const sparkle = document.createElement('div');
+              sparkle.className = 'ender-sparkle purple';
+              sparkle.style.left = (x + (Math.random() * 16 - 8)) + 'px';
+              sparkle.style.top = (y + (Math.random() * 16 - 8)) + 'px';
+              wrapper.appendChild(sparkle);
+              setTimeout(() => sparkle.remove(), 450);
+            }
+          }
+
+          if (t < 1) {
+            requestAnimationFrame(animatePearl);
+          } else {
+            pearl.remove();
+            playSound('teleport');
+
+            const percentX = (targetX / 800) * 100;
+            const percentY = (targetY / 460) * 100;
+            isoMap.style.transformOrigin = `${percentX}% ${percentY}%`;
+            isoMap.style.transform = 'scale(5.5)';
+            isoMap.classList.add('zoom-active');
+
+            if (cloudOverlay) {
+              setTimeout(() => {
+                cloudOverlay.classList.add('active');
+              }, 120);
+            }
+
+            setTimeout(() => {
+              window.location.href = url;
+            }, 680);
+          }
+        };
+
+        requestAnimationFrame(animatePearl);
       });
     });
+
   }
 
   // Add click interceptor on navigation links to trigger transition clouds
@@ -613,5 +725,26 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', () => {
       item.classList.toggle('checked');
     });
+  });
+
+  // ==========================================================================
+  // PROGRAMMATIC SCROLL-TO-TOP BUTTON INJECTION
+  // ==========================================================================
+  const topBtn = document.createElement('button');
+  topBtn.className = 'scroll-to-top-btn';
+  topBtn.setAttribute('aria-label', 'Scroll to top');
+  topBtn.innerHTML = '▲';
+  document.body.appendChild(topBtn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      topBtn.classList.add('visible');
+    } else {
+      topBtn.classList.remove('visible');
+    }
+  });
+
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });

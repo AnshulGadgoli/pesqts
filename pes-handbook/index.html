@@ -130,8 +130,15 @@
     <div class="map-viewport-wrapper">
       <svg class="isometric-map" id="isometricMap" viewBox="0 0 800 460">
         
-        <!-- Water Tile Grid lines (Top-down alignment) -->
-        <g stroke="#0f0f15" stroke-width="1.5" stroke-dasharray="4,4">
+        <defs>
+          <pattern id="minecraftOceanPattern" width="16" height="8" patternUnits="userSpaceOnUse">
+            <rect width="16" height="4" fill="#c68a4c" />
+            <rect y="4" width="16" height="4" fill="#d29d62" />
+          </pattern>
+        </defs>
+
+        <!-- Water Tile Grid lines (Top-down alignment - styled soft brown) -->
+        <g stroke="#a68d6d" stroke-width="1" stroke-dasharray="4,4" opacity="0.35">
           <line x1="50" y1="50" x2="750" y2="50" /><line x1="50" y1="100" x2="750" y2="100" /><line x1="50" y1="150" x2="750" y2="150" />
           <line x1="50" y1="200" x2="750" y2="200" /><line x1="50" y1="250" x2="750" y2="250" /><line x1="50" y1="300" x2="750" y2="300" />
           <line x1="50" y1="350" x2="750" y2="350" /><line x1="50" y1="400" x2="750" y2="400" />
@@ -142,112 +149,153 @@
         </g>
         
         <!-- Corner Coordinate tags (Aesthetic Map Borders) -->
-        <text x="20" y="30" class="map-grid-tag">GRID REGISTRY: B-1</text>
-        <text x="20" y="445" class="map-grid-tag">SYS: 12.934° N, 77.535° E</text>
-        <text x="660" y="30" class="map-grid-tag">SCALE: 1:250 PIXELS</text>
-        <text x="680" y="445" class="map-grid-tag">ALT: 920 METERS</text>
+        <text x="20" y="30" class="map-grid-tag" fill="#5b4129" style="opacity: 0.8; font-weight: bold;">MAP ID: EXPLORER_01</text>
+        <text x="20" y="445" class="map-grid-tag" fill="#5b4129" style="opacity: 0.8; font-weight: bold;">X: 773 Blocks</text>
+        <text x="660" y="30" class="map-grid-tag" fill="#5b4129" style="opacity: 0.8; font-weight: bold;">Y: 64 (Sea Level)</text>
+        <text x="680" y="445" class="map-grid-tag" fill="#5b4129" style="opacity: 0.8; font-weight: bold;">Z: -1295</text>
 
-        <!-- Wave Line segments in the water -->
-        <path d="M 80,110 L 100,110 M 90,105 L 110,105" class="map-wave-line" />
-        <path d="M 700,90 L 720,90 M 710,85 L 730,85" class="map-wave-line" />
-        <path d="M 680,380 L 700,380 M 690,375 L 710,375" class="map-wave-line" />
-        <path d="M 80,360 L 100,360 M 90,355 L 110,355" class="map-wave-line" />
-        <path d="M 400,425 L 420,425 M 410,420 L 430,420" class="map-wave-line" />
-        <path d="M 380,35 L 400,35 M 390,30 L 410,30" class="map-wave-line" />
-
-        <!-- Deep Ocean Outline -->
-        <path d="M 60 80 L 150 40 L 300 60 L 480 30 L 680 70 L 760 180 L 730 320 L 610 420 L 400 390 L 250 430 L 120 390 L 40 280 Z" fill="#0b0b0e" stroke="#121217" stroke-width="3" />
-
-        <!-- Shallow beach outlines (Slightly larger footprint) -->
-        <path d="M 90 120 L 180 75 L 320 90 L 490 65 L 670 100 L 730 200 L 700 330 L 590 400 L 390 375 L 260 410 L 150 370 L 80 260 Z" fill="#2c231a" stroke="#1d1611" stroke-width="3" />
+        <!-- Wave Line segments in the water (styled dark brown) -->
+        <path d="M 80,110 L 100,110 M 90,105 L 110,105" class="map-wave-line" stroke="#5b4129" />
+        <path d="M 700,90 L 720,90 M 710,85 L 730,85" class="map-wave-line" stroke="#5b4129" />
+        <path d="M 680,380 L 700,380 M 690,375 L 710,375" class="map-wave-line" stroke="#5b4129" />
+        <path d="M 80,360 L 100,360 M 90,355 L 110,355" class="map-wave-line" stroke="#5b4129" />
+        <path d="M 400,425 L 420,425 M 410,420 L 430,420" class="map-wave-line" stroke="#5b4129" />
+        <path d="M 380,35 L 400,35 M 390,30 L 410,30" class="map-wave-line" stroke="#5b4129" />
         
-        <!-- Organic, Non-Symmetric Top-Down Island shape (Main land mass) -->
-        <path d="M 120 140 L 200 100 L 340 115 L 500 90 L 650 120 L 700 210 L 670 310 L 570 370 L 380 350 L 280 380 L 170 345 L 110 240 Z" fill="#141c16" stroke="#233226" stroke-width="4" />
+        <!-- Deep Ocean Outline (Expanded Minecraft Striped Water Pattern) -->
+        <path d="M 40 120 L 100 50 L 220 30 L 340 30 L 460 40 L 580 50 L 680 70 L 780 110 L 800 240 L 710 370 L 610 400 L 490 420 L 360 430 L 210 420 L 100 380 L 60 270 Z" fill="url(#minecraftOceanPattern)" stroke="#5b4129" stroke-width="3" />
+
+        <!-- Shallow beach outlines (Expanded Darker tan beach border) -->
+        <path d="M 60 130 L 120 70 L 230 50 L 340 50 L 450 60 L 560 70 L 660 90 L 750 130 L 770 240 L 690 350 L 590 380 L 480 400 L 360 410 L 230 400 L 130 360 L 80 260 Z" fill="#cbb489" stroke="#5b4129" stroke-width="3" />
+        
+        <!-- Main land mass (Expanded Cream/Tan map color) -->
+        <path d="M 80 140 L 140 90 L 240 70 L 340 70 L 440 80 L 540 90 L 640 110 L 720 150 L 740 240 L 670 330 L 570 360 L 470 380 L 360 390 L 250 380 L 160 340 L 100 250 Z" fill="#e4d0a6" stroke="#5b4129" stroke-width="4" />
         
         <!-- Internal forest & dirt pixel grids -->
-        <rect x="220" y="140" width="24" height="24" fill="#0f1410" />
-        <rect x="480" y="130" width="40" height="16" fill="#0f1410" />
-        <rect x="580" y="220" width="32" height="32" fill="#0f1410" />
-        <rect x="300" y="280" width="24" height="40" fill="#0f1410" />
+        <rect x="220" y="140" width="24" height="24" fill="#ab956b" />
+        <rect x="480" y="130" width="40" height="16" fill="#ab956b" />
+        <rect x="580" y="220" width="32" height="32" fill="#ab956b" />
+        <rect x="300" y="280" width="24" height="40" fill="#ab956b" />
         
-        <!-- Compass Emblem (Top-Down Aesthetic Accessory) -->
-        <g transform="translate(70, 70)" stroke="var(--color-border)" stroke-width="1.5" fill="none">
-          <circle cx="0" cy="0" r="14" />
+        <!-- Compass Emblem (Styled to match Explorer Map aesthetic) -->
+        <g transform="translate(70, 70)" stroke="#5b4129" stroke-width="1.5" fill="none">
+          <circle cx="0" cy="0" r="14" fill="#e4d0a6" />
           <line x1="0" y1="-14" x2="0" y2="14" />
           <line x1="-14" y1="0" x2="14" y2="0" />
-          <polygon points="0,-12 3,0 -3,0" fill="var(--color-brass)" stroke="none" />
-          <polygon points="0,12 3,0 -3,0" fill="var(--color-text-muted)" stroke="none" />
+          <polygon points="0,-12 3,0 -3,0" fill="#bd1c1c" stroke="none" />
+          <polygon points="0,12 3,0 -3,0" fill="#5b4129" stroke="none" />
         </g>
         
-        <!-- Winding Dotted Connective Path -->
-        <path d="M 170 170 L 280 145 L 380 170 L 490 135 L 610 200 L 570 300 L 440 260 L 320 330 L 220 290" fill="none" stroke="var(--color-brass)" stroke-width="3" stroke-dasharray="8,8" />
+        <!-- Winding Dotted Connective Path (Uniformly distributed) -->
+        <path d="M 100 150 L 160 110 L 240 90 L 330 90 L 420 100 L 500 110 L 580 130 L 660 160 L 700 240 L 630 310 L 540 330 L 450 350 L 360 360 L 270 350 L 190 320 L 130 250 L 180 190" fill="none" stroke="#5b4129" stroke-width="3" stroke-dasharray="6,6" />
         
         <!-- Landmark I (Chapter I) -->
         <g class="map-landmark" data-url="welcome.html">
-          <circle cx="170" cy="170" r="16" class="map-landmark-node" />
-          <text x="170" y="170" class="map-landmark-text">I</text>
+          <circle cx="100" cy="150" r="22" class="map-landmark-node" />
+          <text x="100" y="150" class="map-landmark-text">I</text>
         </g>
         
         <!-- Landmark II (Chapter II) -->
         <g class="map-landmark" data-url="fundamentals.html">
-          <circle cx="280" cy="145" r="16" class="map-landmark-node" />
-          <text x="280" y="145" class="map-landmark-text">II</text>
+          <circle cx="160" cy="110" r="22" class="map-landmark-node" />
+          <text x="160" y="110" class="map-landmark-text">II</text>
         </g>
         
         <!-- Landmark III (Chapter III) -->
         <g class="map-landmark" data-url="must-haves.html">
-          <circle cx="380" cy="170" r="16" class="map-landmark-node" />
-          <text x="380" y="170" class="map-landmark-text">III</text>
+          <circle cx="240" cy="90" r="22" class="map-landmark-node" />
+          <text x="240" y="90" class="map-landmark-text">III</text>
         </g>
         
         <!-- Landmark IV (Chapter IV) -->
         <g class="map-landmark" data-url="examinations.html">
-          <circle cx="490" cy="135" r="16" class="map-landmark-node" />
-          <text x="490" y="135" class="map-landmark-text">IV</text>
+          <circle cx="330" cy="90" r="22" class="map-landmark-node" />
+          <text x="330" y="90" class="map-landmark-text">IV</text>
         </g>
         
         <!-- Landmark V (Chapter V) -->
         <g class="map-landmark" data-url="subjects.html">
-          <circle cx="610" cy="200" r="16" class="map-landmark-node" />
-          <text x="610" y="200" class="map-landmark-text">V</text>
+          <circle cx="420" cy="100" r="22" class="map-landmark-node" />
+          <text x="420" y="100" class="map-landmark-text">V</text>
         </g>
         
         <!-- Landmark VI (Chapter VI) -->
         <g class="map-landmark" data-url="assignments.html">
-          <circle cx="570" cy="300" r="16" class="map-landmark-node" />
-          <text x="570" y="300" class="map-landmark-text">VI</text>
+          <circle cx="500" cy="110" r="22" class="map-landmark-node" />
+          <text x="500" y="110" class="map-landmark-text">VI</text>
         </g>
         
         <!-- Landmark VII (Chapter VII) -->
         <g class="map-landmark" data-url="srn-prn.html">
-          <circle cx="440" cy="260" r="16" class="map-landmark-node" />
-          <text x="440" y="260" class="map-landmark-text">VII</text>
+          <circle cx="580" cy="130" r="22" class="map-landmark-node" />
+          <text x="580" y="130" class="map-landmark-text">VII</text>
         </g>
         
         <!-- Landmark VIII (Chapter VIII) -->
         <g class="map-landmark" data-url="credits-gpa.html">
-          <circle cx="320" cy="330" r="16" class="map-landmark-node" />
-          <text x="320" y="330" class="map-landmark-text">VIII</text>
+          <circle cx="660" cy="160" r="22" class="map-landmark-node" />
+          <text x="660" y="160" class="map-landmark-text">VIII</text>
         </g>
         
         <!-- Landmark IX (Chapter IX) -->
         <g class="map-landmark" data-url="scholarships.html">
-          <circle cx="220" cy="290" r="16" class="map-landmark-node" />
-          <text x="220" y="290" class="map-landmark-text">IX</text>
+          <circle cx="700" cy="240" r="22" class="map-landmark-node" />
+          <text x="700" y="240" class="map-landmark-text">IX</text>
         </g>
 
         <!-- Landmark X (Chapter X) -->
         <g class="map-landmark" data-url="bootstrap.html">
-          <circle cx="120" cy="230" r="16" class="map-landmark-node" />
-          <text x="120" y="230" class="map-landmark-text">X</text>
+          <circle cx="630" cy="310" r="22" class="map-landmark-node" />
+          <text x="630" y="310" class="map-landmark-text">X</text>
         </g>
 
         <!-- Landmark XI (Chapter XI) -->
-        <g class="map-landmark" data-url="clubs-fests.html">
-          <circle cx="160" cy="120" r="16" class="map-landmark-node" />
-          <text x="160" y="120" class="map-landmark-text">XI</text>
+        <g class="map-landmark" data-url="rrc-campus.html">
+          <circle cx="540" cy="330" r="22" class="map-landmark-node" />
+          <text x="540" y="330" class="map-landmark-text">XI</text>
+        </g>
+
+        <!-- Landmark XII (Chapter XII) -->
+        <g class="map-landmark" data-url="rrc-clubs.html">
+          <circle cx="450" cy="350" r="22" class="map-landmark-node" />
+          <text x="450" y="350" class="map-landmark-text">XII</text>
+        </g>
+
+        <!-- Landmark XIII (Chapter XIII) -->
+        <g class="map-landmark" data-url="rrc-fests.html">
+          <circle cx="360" cy="360" r="22" class="map-landmark-node" />
+          <text x="360" y="360" class="map-landmark-text">XIII</text>
+        </g>
+
+        <!-- Landmark XIV (Chapter XIV) -->
+        <g class="map-landmark" data-url="ecc-campus.html">
+          <circle cx="270" cy="350" r="22" class="map-landmark-node" />
+          <text x="270" y="350" class="map-landmark-text">XIV</text>
+        </g>
+
+        <!-- Landmark XV (Chapter XV) -->
+        <g class="map-landmark" data-url="ecc-clubs.html">
+          <circle cx="190" cy="320" r="22" class="map-landmark-node" />
+          <text x="190" y="320" class="map-landmark-text">XV</text>
+        </g>
+
+        <!-- Landmark XVI (Chapter XVI) -->
+        <g class="map-landmark" data-url="ecc-fests.html">
+          <circle cx="130" cy="250" r="22" class="map-landmark-node" />
+          <text x="130" y="250" class="map-landmark-text">XVI</text>
+        </g>
+
+        <!-- Landmark XVII (Chapter XVII) -->
+        <g class="map-landmark" data-url="website-credits.html">
+          <circle cx="180" cy="190" r="22" class="map-landmark-node" />
+          <text x="180" y="190" class="map-landmark-text">XVII</text>
         </g>
         
+        <!-- Minecraft Map Center Crosshair (Blue + player position) -->
+        <g stroke="#3f51b5" stroke-width="2.5" fill="none" opacity="0.9" pointer-events="none">
+          <line x1="400" y1="222" x2="400" y2="238" />
+          <line x1="392" y1="230" x2="408" y2="230" />
+        </g>
       </svg>
     </div>
 
@@ -456,28 +504,135 @@
       <div class="chapter-strip-inner">
         <div class="chapter-info-col">
           <span class="chapter-num">Chapter XI</span>
-          <h2 class="chapter-title">About Campuses, Clubs, &amp; Fests</h2>
-          <p class="chapter-preview">About Campuses, Clubs, and Fests - To be featured in the next launch.</p>
-          <a href="clubs-fests.html" class="btn-brass">Open Chapter</a>
+          <h2 class="chapter-title">The Ring Road Campus (RRC)</h2>
+          <p class="chapter-preview">Coming after Campus Challenge</p>
+          <a href="rrc-campus.html" class="btn-brass">Open Chapter</a>
         </div>
         <div class="chapter-visual-col">
           <div class="chapter-visual-block">
             <div class="visual-block-decor"></div>
             <span class="showcase-label">Chapter XI</span>
-            <div class="visual-block-title">Clubs &amp; Fests</div>
+            <div class="visual-block-title">RRC CAMPUS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XII -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XII</span>
+          <h2 class="chapter-title">Clubs of RRC</h2>
+          <p class="chapter-preview">Explore the automotive teams, innovation labs, performing arts, and debating circles at the Ring Road Campus.</p>
+          <a href="rrc-clubs.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XII</span>
+            <div class="visual-block-title">RRC Clubs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XIII -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XIII</span>
+          <h2 class="chapter-title">Fests of RRC</h2>
+          <p class="chapter-preview">A chronicle of the massive technical conferences, cultural showcases, and annual celebrations at Ring Road.</p>
+          <a href="rrc-fests.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XIII</span>
+            <div class="visual-block-title">RRC Fests</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XIV -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XIV</span>
+          <h2 class="chapter-title">The Electronic City Campus (ECC)</h2>
+          <p class="chapter-preview">Explore the Engineering Block layout, S&amp;H department, library, canteens, and Bookstore of ECC.</p>
+          <a href="ecc-campus.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XIV</span>
+            <div class="visual-block-title">ECC CAMPUS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XV -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XV</span>
+          <h2 class="chapter-title">Clubs of ECC</h2>
+          <p class="chapter-preview">Explore the diverse technical, cultural, arts, and leadership student-run clubs that drive campus life at ECC.</p>
+          <a href="ecc-clubs.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XV</span>
+            <div class="visual-block-title">ECC Clubs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XVI -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XVI</span>
+          <h2 class="chapter-title">Fests of ECC</h2>
+          <p class="chapter-preview">Coming soon</p>
+          <a href="ecc-fests.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XVI</span>
+            <div class="visual-block-title">ECC Fests</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter XVII -->
+    <section class="chapter-strip pixel-card">
+      <div class="chapter-strip-inner">
+        <div class="chapter-info-col">
+          <span class="chapter-num">Chapter XVII</span>
+          <h2 class="chapter-title">Website Credits</h2>
+          <p class="chapter-preview">Meet the designers, builders, and developers who created this handbook website.</p>
+          <a href="website-credits.html" class="btn-brass">Open Chapter</a>
+        </div>
+        <div class="chapter-visual-col">
+          <div class="chapter-visual-block">
+            <div class="visual-block-decor"></div>
+            <span class="showcase-label">Chapter XVII</span>
+            <div class="visual-block-title">Website Credits</div>
           </div>
         </div>
       </div>
     </section>
 
   </main>
-
-  <!-- Elegant Footer -->
-  <footer class="base-footer">
-    <div class="container">
-      <p>© 2026 PES University. Reimagined with modern pixel aesthetics.</p>
-    </div>
-  </footer>
 
   <script src="js/search-index.js"></script>
   <script src="js/main.js"></script>

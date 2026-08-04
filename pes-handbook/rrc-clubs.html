@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter XII: Clubs of RRC | PES University Handbook</title>
+  <meta name="description" content="Explore student clubs at PES University Ring Road Campus, cataloged across Technical, Dance & Music, Arts & Literature, and Leadership domains.">
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <style>
+    .club-card {
+      background: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      padding: 1.8rem;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .club-card::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 100%;
+      height: 100%;
+      border-right: 4px solid var(--color-border);
+      border-bottom: 4px solid var(--color-border);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .club-card:hover {
+      transform: translate(-2px, -2px);
+      border-color: var(--color-brass);
+    }
+    .club-card:hover::after {
+      border-right-color: var(--color-brass);
+      border-bottom-color: var(--color-brass);
+    }
+    .club-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      gap: 0.5rem;
+    }
+    .club-title {
+      font-family: var(--font-pixel);
+      font-size: 1.15rem;
+      color: var(--color-brass);
+      line-height: 1.2;
+    }
+    .club-badge {
+      font-size: 0.65rem;
+      font-family: var(--font-pixel);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.4rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .club-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.2rem;
+    }
+    .flagship-event {
+      font-size: 0.82rem;
+      background: rgba(229, 184, 95, 0.06);
+      border: 1px dashed var(--color-border);
+      padding: 0.5rem 0.8rem;
+      color: var(--color-text-primary);
+      font-family: var(--font-pixel);
+      margin-top: auto;
+      line-height: 1.4;
+    }
+    .flagship-event strong {
+      color: var(--color-brass);
+    }
+    
+    .tabs-nav {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    
+    .tab-trigger {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.85rem;
+      font-family: var(--font-pixel);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Pixel Cloud Transition Overlay -->
+  <div class="pixel-cloud-overlay active" id="pixelCloudOverlay">
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,40 L 10,40 L 10,30 L 20,30 L 20,20 L 40,20 L 40,30 L 60,30 L 60,10 L 80,10 L 80,30 L 90,30 L 90,40 L 100,40 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,20 L 15,20 L 15,30 L 30,30 L 30,10 L 50,10 L 50,25 L 70,25 L 70,15 L 85,15 L 85,30 L 100,30 L 100,0 L 0,0 Z" />
+    </svg>
+    <svg class="cloud-row" viewBox="0 0 100 40" preserveAspectRatio="none">
+      <path d="M 0,35 L 20,35 L 20,20 L 45,20 L 45,30 L 65,30 L 65,15 L 80,15 L 80,35 L 100,35 L 100,0 L 0,0 Z" />
+    </svg>
+  </div>
+
+  <!-- Page Loader Shutter -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <svg class="loader-emblem" viewBox="0 0 100 100">
+        <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Floating Nav Capsule -->
+  <nav class="floating-nav">
+    <div class="nav-brand">
+      <a href="index.html">PES<span>.</span></a>
+    </div>
+    <div class="breadcrumbs">
+      <a href="index.html">Handbook</a>
+      <span class="separator">/</span>
+      <span class="current">Chapter XII: Clubs of RRC</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-search" id="searchBtn" aria-label="Open search modal">
+        Search <kbd>Ctrl+K</kbd>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search parameters..." autocomplete="off">
+        <button class="btn-close-search" id="closeSearch" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Chapter Header -->
+  <header class="chapter-header container">
+    <span class="chapter-header-num">Chapter XII</span>
+    <h1 class="chapter-header-title">Clubs of RRC</h1>
+    <p class="chapter-header-quote">"Explore the automotive teams, innovation labs, performing arts, and debating circles at the Ring Road Campus."</p>
+    <div class="chapter-header-banner-container">
+      <div class="chapter-header-showcase">
+        <div class="visual-block-decor"></div>
+        <span class="showcase-label">CAMPUS LIFE</span>
+        <div class="showcase-title">RRC CLUB DIRECTORY</div>
+      </div>
+    </div>
+    <div class="ornamental-divider">
+      <div class="divider-pixel"></div>
+      <div class="divider-center-pixel"></div>
+      <div class="divider-pixel"></div>
+    </div>
+  </header>
+
+  <!-- Content Block -->
+  <main class="container">
+    
+    <!-- Tabbed Layout Selector -->
+    <section class="common-subjects-tabs" style="margin-top: 2rem;">
+      
+      <!-- Tab Buttons -->
+      <div class="tabs-nav">
+        <button class="tab-trigger active" aria-label="Show Technical Clubs">Technical &amp; Coding</button>
+        <button class="tab-trigger" aria-label="Show Dance & Music Clubs">Dance &amp; Music</button>
+        <button class="tab-trigger" aria-label="Show Arts & Literature Clubs">Arts, Media &amp; Lit</button>
+        <button class="tab-trigger" aria-label="Show Leadership & Service Clubs">Leadership &amp; Service</button>
+      </div>
+
+      <!-- Tab Contents -->
+      <div class="tab-content">
+        
+        <!-- Tab 1: Technical & Coding -->
+        <div class="tab-pane active">
+          <div class="subjects-grid">
+            
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PES Innovation Lab</h3>
+                <span class="club-badge">Research</span>
+              </div>
+              <p class="club-desc">The university's premier student-run incubation and software engineering lab (formerly Microsoft Innovation Lab). Its alumni network spans over 15 years, reaching top global organizations.</p>
+              <div class="flagship-event"><strong>Flagship:</strong> HackerSpace</div>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">IEEE RAS PESU</h3>
+                <span class="club-badge">Robotics</span>
+              </div>
+              <p class="club-desc">IEEE Robotics and Automation Society focuses on robotics, embedded systems, automation, and intelligent machines through hands-on workshops and real-world projects.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">IEEE CS PESU</h3>
+                <span class="club-badge">Coding</span>
+              </div>
+              <p class="club-desc">IEEE Computer Society is dedicated to software development, programming, artificial intelligence, and hosting coding contests, workshops, and hackathons.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">IEEE APS</h3>
+                <span class="club-badge">ECE</span>
+              </div>
+              <p class="club-desc">IEEE Antennas and Propagation Society focuses on antennas, wireless communication, RF engineering, and electromagnetics, catering especially to Electronics students.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">IEEE CTSoc</h3>
+                <span class="club-badge">Hardware</span>
+              </div>
+              <p class="club-desc">IEEE Consumer Technology Society is focused on smart consumer tech, hardware design, embedded systems, and product prototyping projects.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Alcoding Club</h3>
+                <span class="club-badge">Competitive</span>
+              </div>
+              <p class="club-desc">Dedicated to advanced competitive programming, data structures, and algorithms. Hosts coding contests and trains students for major programming events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Q⟩Forest</h3>
+                <span class="club-badge">Quantum</span>
+              </div>
+              <p class="club-desc">Quantum Computing Community of PESU. Fosters peer learning in quantum physics, quantum gates, quantum algorithms, and future computation architectures.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Equinox</h3>
+                <span class="club-badge">Space</span>
+              </div>
+              <p class="club-desc">The Space Club of PESU. Explores aeromodelling, rocket engineering, astronomy, satellite telemetry systems, and astrophysics.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">SahayAI</h3>
+                <span class="club-badge">Social AI</span>
+              </div>
+              <p class="club-desc">Uses artificial intelligence, machine learning models, and software tools to build applications that assist the elderly and those in need.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Nexus</h3>
+                <span class="club-badge">AIML</span>
+              </div>
+              <p class="club-desc">The department club for Computer Science &amp; Engineering. Explores deep learning, neural networks, computer vision, and machine learning models.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">AURA Club</h3>
+                <span class="club-badge">AIML</span>
+              </div>
+              <p class="club-desc">Department club for CSE (AI &amp; ML). Focuses on algorithmic data analysis, predictive modeling, and AI ethics discussions.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Encode.AI</h3>
+                <span class="club-badge">AIML</span>
+              </div>
+              <p class="club-desc">Technical AIML domain club. Organizes AI-themed hackathons, workshops on natural language processing, and neural network projects.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Arch Club</h3>
+                <span class="club-badge">AIML</span>
+              </div>
+              <p class="club-desc">Department club for CSE (AI &amp; ML), studying software engineering workflows, model architectures, and data warehousing.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">GronIT</h3>
+                <span class="club-badge">Green Tech</span>
+              </div>
+              <p class="club-desc">Green Technology Club of the CSE Department. Focuses on green software engineering, energy-efficient algorithms, and hardware recycling.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Embrione</h3>
+                <span class="club-badge">CSE</span>
+              </div>
+              <p class="club-desc">The official Computer Science &amp; Engineering department club. Conducts technical inductions, bootcamps, and coding contests.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PesOS</h3>
+                <span class="club-badge">Operating Sys</span>
+              </div>
+              <p class="club-desc">Focuses on operating systems, kernel modification, hardware virtualization, security hardening, and open-source contributions.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Vega Racing Electric</h3>
+                <span class="club-badge">Racing</span>
+              </div>
+              <p class="club-desc">The electric racing car engineering team. Designs, prototypes, and builds high-performance electric Formula student racecars.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Team Haya</h3>
+                <span class="club-badge">Racing</span>
+              </div>
+              <p class="club-desc">The premier racing club under the Mechanical Department, engineering Formula combustion cars for international FSAE events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Team Haya Off-Roading</h3>
+                <span class="club-badge">Racing</span>
+              </div>
+              <p class="club-desc">Focuses on rugged off-road automotive designs. Engineers All-Terrain Vehicles (ATVs) for BAJA SAE competitions.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">SILICON</h3>
+                <span class="club-badge">ECE NiCE</span>
+              </div>
+              <p class="club-desc">ECE department vertical for Next Generation Integrated Circuits and Electronics (NiCE). Focuses on VLSI design and microelectronics.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">COMNET</h3>
+                <span class="club-badge">ECE WiNC</span>
+              </div>
+              <p class="club-desc">ECE department vertical for Wireless Networking and Communication (WiNC). Explores wireless grids, RF routing, and LTE/5G protocols.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">SPIRAL</h3>
+                <span class="club-badge">ECE SpAsE</span>
+              </div>
+              <p class="club-desc">ECE department vertical for Signal Processing and Systems Engineering (SpAsE). Studies digital filters, audio/video analysis, and systems control.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">JOEL</h3>
+                <span class="club-badge">ECE Lab</span>
+              </div>
+              <p class="club-desc">The Joy of Engineering Lab. A dynamic ECE sandbox encouraging hobbyist projects, sensor assemblies, and hardware hacking.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">init</h3>
+                <span class="club-badge">BCA</span>
+              </div>
+              <p class="club-desc">The official department club of Computer Applications (BCA), hosting technical events, web design competitions, and database seminars.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Center for Info Security</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">PES University Center for Information Security, Forensics, and Cyber Resilience. Focuses on networking security and cryptography.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">CORI</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Crucible of Research and Innovation (CORI). Coordinates university nanosatellite designs, space communication links, and research projects.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">CDSAML–CCBD</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Center for Data Science &amp; Applied Machine Learning / Center for Cloud Computing &amp; Big Data. Undertakes cloud scaling research.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Center for Robotics</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Center for Robotics, Automation, and Intelligent Systems. Researches autonomous pathing, drone kinetics, and computer-guided actuators.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">cHEAL</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Centre for Healthcare Engineering and Learning. Integrates hardware sensor design with machine learning tools to solve diagnostics.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">C-HACS</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Centre for Hardware Acceleration and Chip Security. Focuses on testing chip architectures and VLSI layout evaluations.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">C2S Lab</h3>
+                <span class="club-badge">Research Center</span>
+              </div>
+              <p class="club-desc">Chip to Startup Lab. An initiative supported by MeiTY introducing undergraduates to industrial VLSI designs and chip fabrication.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 2: Dance & Music -->
+        <div class="tab-pane">
+          <div class="subjects-grid">
+            
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Angika</h3>
+                <span class="club-badge">Classical Dance</span>
+              </div>
+              <p class="club-desc">Celebrating the heritage of classical Indian dance forms, performing fusions at major university cultural events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Antara</h3>
+                <span class="club-badge">Bollywood Dance</span>
+              </div>
+              <p class="club-desc">The high-energy Bollywood dance crew of PES University. Performs routines at major college fests and cultural gatherings.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Team Encore</h3>
+                <span class="club-badge">Western Dance</span>
+              </div>
+              <p class="club-desc">Official Western Dance Crew of PES University RR Campus. Represents the college in national street dance and hip-hop events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Team Sanskrithi</h3>
+                <span class="club-badge">Contemporary Dance</span>
+              </div>
+              <p class="club-desc">Indian Contemporary Dance Team, merging modern choreographies, classical expressions, and artistic dance themes.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Team Trance</h3>
+                <span class="club-badge">Western Dance</span>
+              </div>
+              <p class="club-desc">The western dance crew representing the university in national college events and showcase competitions.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Pitch Please</h3>
+                <span class="club-badge">Acapella</span>
+              </div>
+              <p class="club-desc">The acapella and acoustic music club, focused on vocal harmonies, beatboxing, and acoustic guitar arrangements.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">The Music Club</h3>
+                <span class="club-badge">Bands &amp; Acoustic</span>
+              </div>
+              <p class="club-desc">Official Music Club of PES University RR Campus, coordinating student bands and organizing regular musical jams.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Ninaada</h3>
+                <span class="club-badge">Indian Music</span>
+              </div>
+              <p class="club-desc">Focuses on Indian classical and semi-classical music, combining acoustic instruments with traditional melodies.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Nautanki</h3>
+                <span class="club-badge">Theatre</span>
+              </div>
+              <p class="club-desc">The drama and theatre club. Stages annual college plays, street theatre (Nukkad Natak), acting classes, and scripting workshops.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Kalaangana</h3>
+                <span class="club-badge">BCA Cultural</span>
+              </div>
+              <p class="club-desc">Official Cultural and Performing Arts Club of the BCA Department, organizing dance, music, and art events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PESU Meraki</h3>
+                <span class="club-badge">Fashion</span>
+              </div>
+              <p class="club-desc">The official fashion club of PES University. Focuses on creative styling, modeling, design concepts, and runways.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 3: Arts, Media & Lit -->
+        <div class="tab-pane">
+          <div class="subjects-grid">
+            
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Linguista</h3>
+                <span class="club-badge">Languages</span>
+              </div>
+              <p class="club-desc">The language club celebrating foreign and local languages through translation projects, grammar circles, and dialogue games.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Jnaanada PESU</h3>
+                <span class="club-badge">Linguistics</span>
+              </div>
+              <p class="club-desc">Techno-Linguistic Club exploring the intersection of programming structures, computational linguistics, and literature.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">The Grimm Readers</h3>
+                <span class="club-badge">Book Club</span>
+              </div>
+              <p class="club-desc">The book club hosting regular reading circles, book discussions, author reviews, and literature exchanges.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Quotient Quiz Club</h3>
+                <span class="club-badge">Trivia</span>
+              </div>
+              <p class="club-desc">The premier quiz society of RRC. Hosts weekly general quizzes, sports trivia, business quizzes, and national quiz bowls.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Kannada Koota</h3>
+                <span class="club-badge">Techno-Cultural</span>
+              </div>
+              <p class="club-desc">The official Kannada cultural club of RR Campus, organizing activities and panels that highlight local heritage.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">HoPES PESU</h3>
+                <span class="club-badge">Videography</span>
+              </div>
+              <p class="club-desc">Official videography club of RR Campus, training students in editing, cinematography, sound, and recording fests.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PIXELS Photography</h3>
+                <span class="club-badge">Photography</span>
+              </div>
+              <p class="club-desc">Official photography club of RR Campus, documenting student life, campus architecture, and college festivals.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PESU Talkies</h3>
+                <span class="club-badge">Filmmaking</span>
+              </div>
+              <p class="club-desc">Official filmmaking club of the university, conducting workshops on scriptwriting, direction, and film editing.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PESU Podcast</h3>
+                <span class="club-badge">Media</span>
+              </div>
+              <p class="club-desc">Produces regular podcast episodes featuring academic guests, industry professionals, and student club heads.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">GCube PESU</h3>
+                <span class="club-badge">Gaming</span>
+              </div>
+              <p class="club-desc">The official gaming club of PES RR Campus. Coordinates esports tournaments, console game trials, and local LAN events.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Mosaic PESU</h3>
+                <span class="club-badge">Fine Arts</span>
+              </div>
+              <p class="club-desc">The official fine arts and painting club, organizing workshops on sketching, canvas art, and college murals.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">DSGNR</h3>
+                <span class="club-badge">Design</span>
+              </div>
+              <p class="club-desc">Focuses on UI/UX, graphic design, layout engineering, typography, and professional brand designs.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 4: Leadership & Service -->
+        <div class="tab-pane">
+          <div class="subjects-grid">
+            
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PES MUN Society</h3>
+                <span class="club-badge">Diplomacy</span>
+              </div>
+              <p class="club-desc">The Model United Nations society, active in simulating UN conferences, global diplomacy debates, and drafting resolutions.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Debating Society</h3>
+                <span class="club-badge">Debate</span>
+              </div>
+              <p class="club-desc">The official debating club, training students in parliamentary debate formats, public speaking, and policy arguments.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">TEDxPESU</h3>
+                <span class="club-badge">TED Talks</span>
+              </div>
+              <p class="club-desc">Fosters sharing of ideas by organizing annual TEDx talks featuring guest speakers from diverse fields.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Changemakers' Society</h3>
+                <span class="club-badge">Social Impact</span>
+              </div>
+              <p class="club-desc">Focused on environmental cleanups, civic campaigns, sustainability drives, and social responsibility projects.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Aikya PESU</h3>
+                <span class="club-badge">Community</span>
+              </div>
+              <p class="club-desc">Focused on social service campaigns, teaching programs at local schools, and community engagement initiatives.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Rotaract Club</h3>
+                <span class="club-badge">Social Service</span>
+              </div>
+              <p class="club-desc">A student wing of Rotary International. Engages students in blood donation drives, school teaching, and local service.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Entrepreneurship Cell</h3>
+                <span class="club-badge">E-Cell</span>
+              </div>
+              <p class="club-desc">Fosters student-led startup ideas, entrepreneurship workshops, hackathons, and incubation pitches.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">CIE</h3>
+                <span class="club-badge">Incubation</span>
+              </div>
+              <p class="club-desc">Center of Innovation and Entrepreneurship. The official college incubation center assisting student startups.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">PESU Venture Labs</h3>
+                <span class="club-badge">Funding</span>
+              </div>
+              <p class="club-desc">The official startup funding accelerator of the university, supporting student teams with venture capital support.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Enactus PESU</h3>
+                <span class="club-badge">Social Biz</span>
+              </div>
+              <p class="club-desc">Combines business metrics with social welfare, developing startup solutions to resolve public issues.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">The Trading Hub</h3>
+                <span class="club-badge">Finance</span>
+              </div>
+              <p class="club-desc">A student group exploring financial literacy, market analysis, stock trading, and portfolio management.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">Beetles Business Club</h3>
+                <span class="club-badge">Business</span>
+              </div>
+              <p class="club-desc">Encourages skill-building in business case studies, consulting simulations, and mock trade markets.</p>
+            </div>
+
+            <div class="club-card">
+              <div class="club-title-row">
+                <h3 class="club-title">IRA PESU</h3>
+                <span class="club-badge">UGC Service</span>
+              </div>
+              <p class="club-desc">The official student welfare service club, organizing awareness drives and campaigns under UGC guidelines.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chapter Navigation Footer -->
+  <footer class="chapter-navigation-footer">
+    <div class="container footer-nav-inner">
+      <a href="rrc-campus.html" class="nav-footer-btn prev-btn">
+        <span class="nav-footer-label">Previous Chapter</span>
+        <span class="nav-footer-title">Chapter XI: The Ring Road Campus (RRC)</span>
+      </a>
+      <div class="nav-footer-center">
+        <a href="index.html" class="nav-footer-center-btn" aria-label="Back to Handbook Index">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </a>
+      </div>
+      <a href="rrc-fests.html" class="nav-footer-btn next-btn">
+        <span class="nav-footer-label">Next Chapter</span>
+        <span class="nav-footer-title">Chapter XIII: Fests of RRC</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Floating WPM Speed Gauge -->
+  <div class="reading-speed-blob">
+    <svg class="speed-pixel-icon" viewBox="0 0 24 24">
+      <path d="M12 2v4h4V2h-4z M8 6h4v4H8V6z M4 10h4v4H4v-4z M12 10h4v4h-4v-4z M16 14h4v4h-4v-4z M8 18h4v4H8v-4z" />
+    </svg>
+    <div class="speed-metrics">
+      <span class="speed-label">READ SPEED</span>
+      <span class="speed-value" id="wpmValue">--- WPM</span>
+      <span class="speed-pace" id="paceValue">COMPLETED: 0%</span>
+    </div>
+    <div class="speed-progress-bar" id="wpmProgressBar"></div>
+  </div>
+
+  <script src="js/search-index.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
